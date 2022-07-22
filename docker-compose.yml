@@ -7,7 +7,7 @@ services:
             - './src:/application'
         environment:
             - MYSQL_ROOT_PASSWORD=pass1234
-            - MYSQL_DATABASE=php-playground
+            - MYSQL_DATABASE=hiking
             - MYSQL_USER=playground-user
             - MYSQL_PASSWORD=playground-pass1234
         ports:
@@ -31,7 +31,7 @@ services:
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        container_name: pma
+        container_name: pma-hiking
         links:
             - mysql
         environment:
