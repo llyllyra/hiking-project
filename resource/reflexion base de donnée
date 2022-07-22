@@ -1,0 +1,54 @@
+Hikes
+-
+id int pk IDENTITY
+name varchar(255)
+createdDate date
+distance float
+duration float
+elevationGain float
+description text
+updateDate date null
+imgUrl string
+difficultyId int FK -< difficulty.id
+userId id FK -< Users.id
+
+Users
+-
+id int pk IDENTITY
+firstName varchar
+lastName varchar
+nickName varchar
+email varchar
+password varchar
+role varchar
+levelIdint FK >- level.id
+
+Tags
+-
+id int pk IDENTITY
+name varchar(50)
+
+
+HikesTag
+-
+id int pk IDENTITY
+hikesId int FK >-< Hikes.id
+tagId int FK >-< Tags.id
+
+level
+-
+id int pk IDENTITY
+name varchar(50)
+
+commentaire
+-
+id int pk IDENTITY
+comment varchar
+createdDate date
+hikesId int FK -< Hikes.id
+userId int FK -< Users.id
+
+difficulty
+-
+id int pk IDENTITY
+name varchar
