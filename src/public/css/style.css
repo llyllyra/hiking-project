@@ -1,7 +1,35 @@
-header h1 {
+header {
+  height: 60px;
+  width: 100%;
+  background-color: #222f3e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+header .header-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+header .header-title h1 {
+  float: left;
+  margin-top: 15px;
+  height: 25px;
   color: #fff;
-  font-size: 50px;
-  margin: 40px;
+  font-size: 25px;
+  margin-left: 40px;
+}
+header .navbar {
+  margin-left: 1200px;
+}
+header .navbar .navbar-item {
+  display: inline-block;
+}
+header .navbar .navbar-item a {
+  text-decoration: none;
+  font-size: 20px;
+  margin: 30px;
+  color: #fff;
 }
 
 #register {
@@ -39,4 +67,4 @@ header h1 {
 body {
   background-image: url("../img/bg2.jpg");
   background-size: cover;
-}
+}/*# sourceMappingURL=style.css.map */

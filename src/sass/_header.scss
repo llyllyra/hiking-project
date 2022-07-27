@@ -1,7 +1,29 @@
 header {
-  h1 {
-    color: #fff;
-    font-size: 50px;
-    margin: 40px;
+  height: 60px;
+  width: 100%;
+  background-color: #222f3e;
+  display: flex;
+  .header-title {
+    display: flex;
+    h1 {
+      float: left;
+      margin-top: 15px;
+      height: 25px;
+      color: #fff;
+      font-size: 25px;
+      margin-left: 40px;
+    }
+  }
+  .navbar {
+    margin-left : 1200px;
+    .navbar-item {
+      display: inline-block;
+      a {
+        text-decoration: none;
+        font-size: 20px;
+        margin: 30px;
+        color: #fff;
+      }
+    }
   }
 }
