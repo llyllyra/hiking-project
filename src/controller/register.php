@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 use src\model\UserRegistration;
 
-require_once('./model/Register.php');
+require_once('./model/register.php');
 
 
 class RegisterController
@@ -15,6 +15,6 @@ class RegisterController
         // then the view will actually display them.
 
         //load the view
-        header('Location: ../view/Register.php');
+        header('Location: ../view/register.php');
     }
 }

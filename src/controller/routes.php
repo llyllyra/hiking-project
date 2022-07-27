@@ -7,7 +7,12 @@ $routes = [
         '/register' => '../view/register.php',
         '/register_submit' => '../view/register.php',
         '/login' => '../view/login.php',
+        '/add_hike' => '../view/add_hike.php',
+        '/my_hikes' => '../view/my_hikes.php',
+        '/my_account' => '../view/account.php',
         '/dashboard' => '../view/admin/dashboard.php',
+        '/disconnect' => '../controller/disconnect.php',
+        
     ],
     // Routes de la méthode POST
     'POST' => [

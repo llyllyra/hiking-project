@@ -3,7 +3,7 @@ include_once 'inc/header.inc.php';
 
 // on teste la déclaration de nos variables
 if (isset($_POST['email']) && isset($_POST['password'])) {
-    require_once '../core/Db.php';
+    require_once '../core/db.php';
     $email = $_POST['email'];
     $password = $_POST['password'];
     //Récupérer les données de l'utilisateur

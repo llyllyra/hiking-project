@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 use src\model\Hikes;
 
-require_once('../model/Hikes.php');
+require_once('../model/hikes.php');
 
 class HikesController
 {
@@ -19,6 +19,10 @@ class HikesController
 
         //load the view
         require('../view/homepage.php');
+    }
+
+    public function AddHike () {
+
     }
 }
 

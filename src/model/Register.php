@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace \model;
 
-require_once('DbConnect.php');
+require_once('dbConnect.php');
 
 class CompaniesManager extends User
 {

@@ -14,15 +14,24 @@
 <body>
 
 
-<header class="header">
-    <div class="header-title">
+<header>
+    <div>
         <h1>Hiking APP</h1>
     </div>
-    <nav class="navbar">
-        <nav class="navbar-item">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/login">Se connecter</a>
-        </nav>
+    <nav class="navbar" style="background-color: #e3f2fd;">
+    <ul>
+        <li><a href="/home" alt="home">HOME</a></li>
+        <li><a href="/about" alt="about">ABOUT</a></li>
+        <?php if (!isset($_SESSION['user_id'])) { ?>
+        <li><a href="/register" alt="register">REGISTER</a></li>
+        <li><a href="/login" alt="login">LOGIN</a></li>
+        <?php }
+        else { ?>
+        <li><a href="/my_hikes">MY HIKES</a></li>
+        <li><a href="/add_hike">ADD HIKE</a></li>
+        <li><a href="/add_hike">MY ACCOUNT</a></li>
+        <li><a href="/disconnect">DISCONNECT</a></li>
+        <?php } ?>
+    </ul>
     </nav>
 </header>

@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 use \model\Login;
 
-require_once('./model/Login.php');
+require_once('./model/login.php');
 
 class LoginController
 {
@@ -18,6 +18,6 @@ class LoginController
         // then the view will actually display them.
 
         //load the view
-        require('./view/Login.php');
+        require('./view/login.php');
     }
 }
