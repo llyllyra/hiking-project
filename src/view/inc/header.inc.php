@@ -26,3 +26,6 @@
         </nav>
     </nav>
 </header>
+    <header>
+        <div id="logo"></div>
+    </header>

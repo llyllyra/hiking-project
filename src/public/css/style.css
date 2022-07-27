@@ -57,8 +57,8 @@ header .navbar .navbar-item a {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 #register form .btn_box button {
   margin: 20px auto;
@@ -67,4 +67,10 @@ header .navbar .navbar-item a {
 body {
   background-image: url("../img/bg2.jpg");
   background-size: cover;
-}/*# sourceMappingURL=style.css.map */
+}
+@media screen and (min-width: 768px) {
+  body {
+    background: url("../img/bg_screen.png") no-repeat center center fixed;
+    background-size: cover;
+  }
+}
