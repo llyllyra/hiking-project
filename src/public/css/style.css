@@ -1,7 +1,67 @@
-header h1 {
+header {
+  width: 100%;
+  height: 190px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media screen and (min-width: 768px) {
+  header {
+    height: 290px;
+  }
+}
+header div#logo {
+  margin: 20px auto;
+  background-image: url("../img/devrando.png");
+  height: 150px;
+  width: 150px;
+  background-size: cover;
+}
+@media screen and (min-width: 768px) {
+  header div#logo {
+    height: 250px;
+    width: 250px;
+  }
+}
+
+@media screen and (min-width: 845px) {
+  section#hikes_list {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+section#hikes_list ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+  padding: 0px;
+}
+section#hikes_list ul li {
+  background-color: #222f3e;
   color: #fff;
-  font-size: 50px;
-  margin: 40px;
+  -webkit-box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
+  border-radius: 10px;
+  width: 360px;
+  margin: 25px auto;
+}
+section#hikes_list ul li p {
+  margin: 5px;
+}
+section#hikes_list ul li p#hike_name {
+  height: 50px;
+}
+section#hikes_list ul li p#info {
+  text-align: left;
+  margin-left: 10px;
+}
+section#hikes_list ul li img {
+  width: 360px;
 }
 
 #register {
@@ -39,4 +99,10 @@ header h1 {
 body {
   background-image: url("../img/bg2.jpg");
   background-size: cover;
+}
+@media screen and (min-width: 768px) {
+  body {
+    background: url("../img/bg_screen.png") no-repeat center center fixed;
+    background-size: cover;
+  }
 }

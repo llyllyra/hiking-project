@@ -12,5 +12,5 @@
 </head>
 <body>
     <header>
-        <h1>Hiking APP</h1>
+        <div id="logo"></div>
     </header>

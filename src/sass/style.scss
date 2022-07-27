@@ -1,7 +1,15 @@
 @import "./_header.scss";
-@import "./_register.scss";
+@import "./_homepage.scss";
+@import "./_form.scss";
 
 body {
   background-image: url("../img/bg2.jpg");
   background-size: cover;
+  @media screen and(min-width: 768px) {
+    background: url("../img/bg_screen.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 }
