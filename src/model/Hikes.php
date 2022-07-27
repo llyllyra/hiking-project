@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 
-require_once('../core/Db.php');
+require_once('../core/db.php');
 
 class Hikes extends HikesManager
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace \model;
 
-require_once('Db.php');
+require_once('db.php');
 
 class Login extends Manager
 {
