@@ -12,7 +12,6 @@ header .header-title {
   display: flex;
 }
 header .header-title h1 {
-  float: left;
   margin-top: 15px;
   height: 25px;
   color: #fff;
@@ -20,7 +19,7 @@ header .header-title h1 {
   margin-left: 40px;
 }
 header .navbar {
-  margin-left: 1200px;
+  margin-left: 5%;
 }
 header .navbar .navbar-item {
   display: inline-block;
@@ -57,11 +56,15 @@ header .navbar .navbar-item a {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #register form .btn_box button {
   margin: 20px auto;
+}
+
+.error .error-title {
+  color: #ffffff;
 }
 
 body {
@@ -73,4 +76,4 @@ body {
     background: url("../img/bg_screen.png") no-repeat center center fixed;
     background-size: cover;
   }
-}
+}/*# sourceMappingURL=style.css.map */

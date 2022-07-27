@@ -8,6 +8,8 @@ $routes = [
         '/register_submit' => '../view/register.php',
         '/login' => '../view/login.php',
         '/dashboard' => '../view/admin/dashboard.php',
+        '/error' => '../view/error.php',
+        '/about' => '../view/about.php',
     ],
     // Routes de la méthode POST
     'POST' => [

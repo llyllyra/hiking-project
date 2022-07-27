@@ -14,7 +14,7 @@ header {
     }
   }
   .navbar {
-    margin-left: 80%;
+    margin-left: 5%;
     .navbar-item {
       display: inline-block;
       a {
@@ -22,23 +22,6 @@ header {
         font-size: 20px;
         margin: 30px;
         color: #fff;
-      }
-      width: 100%;
-      height: 190px;
-      display: flex;
-      @media screen and(min-width: 768px) {
-        height: 290px;
-      }
-      div#logo {
-        margin: 20px auto;
-        background-image: url("../img/devrando.png");
-        height: 150px;
-        width: 150px;
-        background-size: cover;
-        @media screen and(min-width: 768px) {
-          height: 250px;
-          width: 250px;
-        }
       }
     }
   }
