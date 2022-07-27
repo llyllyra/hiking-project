@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `hiking`
+-- Base de données : `jepsen6-dollar`
 --
-CREATE DATABASE IF NOT EXISTS `hiking` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `hiking`;
+CREATE DATABASE IF NOT EXISTS `jepsen6-dollar` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `jepsen6-dollar`;
 
 -- --------------------------------------------------------
 

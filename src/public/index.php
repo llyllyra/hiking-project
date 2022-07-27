@@ -1,8 +1,8 @@
 <?php
 session_start();
 // On importe les différents fichiers requis
-require_once 'core/Request.php';
-require_once 'core/Router.php';
+require_once 'core/request.php';
+require_once 'core/router.php';
 require_once 'controller/routes.php';
 
 // On utilise les méthodes statiques de la classe Request (pas besoin de l'instancier)

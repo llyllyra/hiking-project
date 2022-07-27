@@ -1,6 +1,6 @@
 <?php
 include_once 'inc/header.inc.php';
-require_once 'core/Db.php';
+require_once 'core/db.php';
 
 try {
     $q = $pdo->prepare("SELECT * from hikes");
