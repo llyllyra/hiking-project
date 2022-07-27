@@ -1,14 +1,19 @@
 <?php
+declare(strict_types=1);
 
-require_once 'core/dbinfo.php';
+namespace Becode\MVCBoilerplate\Model;
 
+class Manager
+{
+	protected function connectDb()
+	{
+		try{
+			$db = new PDO("mysql:host=mysql;dbname=classicmodels;port=3306","root","root");
+		    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		    return $db;
+	    } catch(Exception $e){
+	        die('Error : '.$e->getMessage());
+	    }
+	}
 
-try {
-    $pdo = new PDO(DNS , USER, PASSWORD);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    return $pdo;
-}
-catch(Exception $e){
-    echo $e->getMessage();
-    exit;
 }
