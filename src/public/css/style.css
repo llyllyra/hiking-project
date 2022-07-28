@@ -149,9 +149,6 @@ body {
   background-image: url("../img/bg2.jpg");
   background-size: cover;
 }
-body a {
-  text-decoration: none;
-}
 @media screen and (min-width: 768px) {
   body {
     background: url("../img/bg_screen.png") no-repeat center center fixed;
@@ -200,4 +197,4 @@ body main section {
   body main section ul li img {
     width: 360px;
   }
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */}
