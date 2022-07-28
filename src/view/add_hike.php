@@ -36,7 +36,7 @@ if (isset($_POST['name']) && isset($_POST['departure']) && isset($_POST['arrive'
         $duration = $_POST['duration'];
         $elevationgain = $_POST['elevationgain'];
         $description = $_POST['description'];
-        $tags = $_POST['tags'];
+        $tags = implode(';', $_POST['tags']);
         $date = date('Y-m-d');
         $user= $_SESSION['user_id'];
 
@@ -111,7 +111,7 @@ if (isset($_POST['name']) && isset($_POST['departure']) && isset($_POST['arrive'
         foreach ($tags as $tag) :
         ?>
             <div class="form-check">
-                <input name="tags" value="<?= $tag['id']; ?>" class="form-check-input" type="checkbox" id="flexCheckDefault">
+                <input name="tags[]" value="<?= $tag['id']; ?>" class="form-check-input" type="checkbox" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                 <?= $tag['name']; ?>
                 </label>

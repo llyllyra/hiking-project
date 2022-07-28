@@ -16,13 +16,12 @@ if (isset($_POST['email']) && isset($_POST['first_name']) && isset($_POST['last_
         $stmt->bindParam(':role', $role);
     
         // insertion d'une ligne
-        $firstName = $_POST['first_name'];
-        $lastName = $_POST['last_name'];
-        $loginName = $_POST['login_name'];
-        $email = $_POST['email'];
+        $firstName = htmlspecialchars($_POST['first_name']);
+        $lastName = htmlspecialchars($_POST['last_name']);
+        $loginName = htmlspecialchars($_POST['login_name']);
+        $email = htmlspecialchars($_POST['email']);
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $role = "user";
-        var_dump($firstName,$lastName,$loginName,$email,$password,$role);
         $stmt->execute();
     
         //Redicrection

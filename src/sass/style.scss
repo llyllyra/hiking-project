@@ -4,6 +4,9 @@
 @import "_error.scss";
 
 body {
+  a {
+    text-decoration: none;
+  }
   background-image: url("../img/bg2.jpg");
   background-size: cover;
   @media screen and(min-width: 768px) {

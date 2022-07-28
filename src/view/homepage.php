@@ -17,7 +17,7 @@ $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
         <?php
         foreach ($hikes as $hike):
         ?>
-        <a href="hike/<?=$hike['id'];?>">
+        <a href="hike?id=<?=$hike['id'];?>">
         <li class="hike_card">
             <p id="hike_name"><?=$hike['name'];?></p>
             <img src="upload/<?=$hike['imgUrl'];?>">
