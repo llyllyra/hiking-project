@@ -22,14 +22,8 @@
   src: url('/src/public/fonts/metropolis.bold.otf') format('truetype'),
 }
 
-
-
 body {
-  a {
-    text-decoration: none;
-  }
   font-family: "Metropolis-Regular", sans-serif;
-
   background-image: url("../img/bg2.jpg");
   background-size: cover;
   @media screen and(min-width: 768px) {
