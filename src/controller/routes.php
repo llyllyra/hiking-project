@@ -20,5 +20,7 @@ $routes = [
     'POST' => [
         '/register_submit' => '../view/register.php',
         '/login_submit' => '../view/login.php',
+        '/add_hike' => '../view/add_hike.php',
+
     ],
 ];
