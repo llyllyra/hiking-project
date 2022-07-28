@@ -36,7 +36,8 @@ if (isset($_POST['email']) && isset($_POST['first_name']) && isset($_POST['last_
 //Si les champs ne sont pas tous remplis    
 }
 else {
-    echo "Veuillez remplir tous les champs";
+    //Afficher message d'erreur ici
+    //echo "Veuillez remplir tous les champs";
 }
 
 ?>

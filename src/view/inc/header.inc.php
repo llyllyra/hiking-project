@@ -12,26 +12,26 @@
     <title>Hiking APP</title>
 </head>
 <body>
-
-
 <header>
     <div>
-        <h1>Hiking APP</h1>
+        <a href="home">
+            <h1>< DEV > Randonneur</h1>
+        </a>
     </div>
-    <nav class="navbar" style="background-color: #e3f2fd;">
-    <ul>
-        <li><a href="/home" alt="home">HOME</a></li>
-        <li><a href="/about" alt="about">ABOUT</a></li>
-        <?php if (!isset($_SESSION['user_id'])) { ?>
-        <li><a href="/register" alt="register">REGISTER</a></li>
-        <li><a href="/login" alt="login">LOGIN</a></li>
-        <?php }
-        else { ?>
-        <li><a href="/my_hikes">MY HIKES</a></li>
-        <li><a href="/add_hike">ADD HIKE</a></li>
-        <li><a href="/add_hike">MY ACCOUNT</a></li>
-        <li><a href="/disconnect">DISCONNECT</a></li>
-        <?php } ?>
-    </ul>
+    <nav>
+        <ul class="navbar-item">
+            <li><a href="/home" alt="home">HOME</a></li>
+            <li><a href="/about" alt="about">ABOUT</a></li>
+            <?php if (!isset($_SESSION['user_id'])) { ?>
+            <li><a href="/register" alt="register">REGISTER</a></li>
+            <li><a href="/login" alt="login">LOGIN</a></li>
+            <?php }
+            else { ?>
+            <li><a href="/my_hikes">MY HIKES</a></li>
+            <li><a href="/add_hike">ADD HIKE</a></li>
+            <li><a href="/add_hike">MY ACCOUNT</a></li>
+            <li><a href="/disconnect">DISCONNECT</a></li>
+            <?php } ?>
+        </ul>
     </nav>
 </header>

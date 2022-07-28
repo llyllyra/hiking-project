@@ -31,7 +31,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
 }
 else {
-    echo "Une erreur s'est produite, veuillez réessayer.";
+    //Afficher message d'erreur
+    //echo "Une erreur s'est produite, veuillez réessayer.";
 }
 ?>
 
