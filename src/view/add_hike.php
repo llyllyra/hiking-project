@@ -14,7 +14,7 @@ if (isset($_POST['name']) && isset($_POST['departure']) && isset($_POST['arrive'
     echo "</pre>";
         require_once '../core/db.php';
         //enregistrer les données dans la base de données
-        $stmt = $pdo->prepare("INSERT INTO hikes (name, depature, arrive, difficulty, distance, duration, elevationGain, description, tags_id) VALUES (:name, :depature, :arrive, :difficulty, :distance, :duration, :elevationgain, :description, :tags)");
+        $stmt = $pdo->prepare("INSERT INTO hikes (name, departure, arrive, difficulty, distance, duration, elevationGain, description, tags_id, createdDate, user_Id) VALUES (:name, :departure, :arrive, :difficulty, :distance, :duration, :elevationgain, :description, :tags, :date, :user)");
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':departure', $departure);
         $stmt->bindParam(':arrive', $arrive);
@@ -24,6 +24,8 @@ if (isset($_POST['name']) && isset($_POST['departure']) && isset($_POST['arrive'
         $stmt->bindParam(':elevationgain', $elevationgain);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':tags', $tags);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':user', $user);
 
         // insertion d'une ligne
         $name = $_POST['name'];
@@ -35,9 +37,9 @@ if (isset($_POST['name']) && isset($_POST['departure']) && isset($_POST['arrive'
         $elevationgain = $_POST['elevationgain'];
         $description = $_POST['description'];
         $tags = $_POST['tags'];
-    echo "<pre>";
-    echo$name, $departure, $arrive, $difficulty, $distance, $duration, $elevationgain, $description, $tags;
-    echo "</pre>";
+        $date = date('Y-m-d');
+        $user= $_SESSION['user_id'];
+
         $stmt->execute();
 
         //Redicrection

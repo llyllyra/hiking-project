@@ -20,6 +20,9 @@
     </div>
     <nav>
         <ul class="navbar-item">
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
+            <li><a href="/dashboard" alt="admin">ADMIN</a></li>
+            <?php } ?>
             <li><a href="/home" alt="home">HOME</a></li>
             <li><a href="/about" alt="about">ABOUT</a></li>
             <?php if (!isset($_SESSION['user_id'])) { ?>

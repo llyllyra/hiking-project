@@ -14,13 +14,12 @@ $routes = [
         '/add_hike' => '../view/add_hike.php',
         '/my_hikes' => '../view/my_hikes.php',
         '/my_account' => '../view/account.php',
-
+        
     ],
     // Routes de la méthode POST
     'POST' => [
         '/register_submit' => '../view/register.php',
         '/login_submit' => '../view/login.php',
         '/add_hike' => '../view/add_hike.php',
-
     ],
 ];

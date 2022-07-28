@@ -17,6 +17,7 @@ $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
         <?php
         foreach ($hikes as $hike):
         ?>
+        <a href="hike/<?=$hike['id'];?>">
         <li class="hike_card">
             <p id="hike_name"><?=$hike['name'];?></p>
             <img src="upload/<?=$hike['imgUrl'];?>">
@@ -31,6 +32,7 @@ $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
           <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
         </svg> Distance : <?=$hike['distance'];?> km</p>
         </li>
+        </a>
       <?php
       endforeach;
       ?>
