@@ -33,7 +33,7 @@
             <li><a href="/my_hikes">MY HIKES</a></li>
             <li><a href="/add_hike">ADD HIKE</a></li>
             <li><a href="/add_hike">MY ACCOUNT</a></li>
-            <li><a href="/disconnect">DISCONNECT</a></li>
+            <li><a href="/user?page=disconnect">DISCONNECT</a></li>
             <?php } ?>
         </ul>
     </nav>

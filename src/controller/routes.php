@@ -16,7 +16,8 @@ $routes = [
         '/my_account' => '../view/account.php',
         '/update_hike' => '../view/update_hike.php',
         '/delete_hike' => '../view/delete_hike.php',
-        '/hike' => '../view/hike.php'
+        '/hike' => '../view/hike.php',
+        '/user' => '../controller/user.php',
 
     ],
     // Routes de la méthode POST
