@@ -9,7 +9,7 @@ body header {
   margin: 0 auto;
 }
 body header div {
-  width: 25%;
+  width: 30%;
   padding-top: 10px;
   padding-left: 30px;
   display: -webkit-box;
@@ -30,7 +30,7 @@ body header div a h1 {
   text-decoration: none;
 }
 body header nav {
-  width: 75%;
+  width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,18 +44,15 @@ body header nav ul {
   display: flex;
   margin-top: 20px;
 }
-body header nav ul li {
-  margin-right: 30px;
-}
 body header nav ul li a {
   text-decoration: none;
   font-size: 28x;
   color: #fff;
-  margin: 20px;
+  padding: 10px;
 }
 body header nav ul li a:hover {
   background-color: #fff;
-  margin: 20px;
+  padding: 10px;
   border-radius: 6px;
 }
 
@@ -98,19 +95,11 @@ body header nav ul li a:hover {
 
 main #hike {
   color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-main #hike #hike_list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  padding: 0px;
-}
-main #hike #hike_list .hike_card {
-  display: block;
+main #hike .hike_info {
   background-color: #222f3e;
   color: #fff;
   -webkit-box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
@@ -119,13 +108,33 @@ main #hike #hike_list .hike_card {
   width: 800px;
   margin: 80px auto;
 }
-main #hike #hike_list .hike_card img {
+main #hike .hike_info #info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+main #hike .hike_info img {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 400px;
   width: 600px;
 }
-main #hike #hike_list .hike_card #hike_name {
+main #hike .hike_info #hike_name {
   text-align: center;
   font-size: 32px;
+}
+main #hike .hike_info p #info {
+  display: block;
+}
+main #hike #description {
+  background-color: #222f3e;
+  color: #fff;
+  -webkit-box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
+  border-radius: 10px;
+  width: 800px;
+  margin: 80px auto;
 }
 
 @font-face {
@@ -148,6 +157,9 @@ body {
   font-family: "Metropolis-Regular", sans-serif;
   background-image: url("../img/bg2.jpg");
   background-size: cover;
+}
+body a {
+  text-decoration: none;
 }
 @media screen and (min-width: 768px) {
   body {
@@ -197,3 +209,4 @@ body main section {
   body main section ul li img {
     width: 360px;
   }
+}

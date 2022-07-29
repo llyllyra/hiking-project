@@ -7,7 +7,7 @@ body {
     max-width: 1520px;
     margin: 0 auto;
     div {
-      width: 25%;
+      width: 30%;
       padding-top: 10px;
       padding-left: 30px;
       display: flex;
@@ -24,22 +24,21 @@ body {
       }
     }
     nav {
-      width: 75%;
+      width: 70%;
       display: flex;
       justify-content: flex-end;
       ul {
         display: flex;
         margin-top: 20px;
         li {
-          margin-right: 30px;
           a {
             text-decoration: none;
             font-size: 28x;
             color: #fff;
-            margin: 20px;
+            padding: 10px;
             &:hover {
               background-color: #fff;
-              margin: 20px;
+              padding: 10px;
               border-radius: 6px;
             }
           }

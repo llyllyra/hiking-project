@@ -1,12 +1,14 @@
 <?php
 include_once 'inc/header.inc.php';
 require_once 'core/db.php';
-
-// hikes id
-$id = 7;
+//Si l'id de la rando n'existe pas : erreur
+if (!isset($_GET['id'])) {
+  echo 'Error';
+  exit();
+}
 try {
   // select l'id de hikes
-  $q = $pdo->prepare("SELECT * from hikes WHERE id = $id");
+  $q = $pdo->prepare("SELECT * from hikes WHERE id = $_GET[id]");
   $q->execute();
 } catch (Exception $e) {
   echo $e->getMessage();
@@ -14,19 +16,15 @@ try {
 }
 $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
-<main>
-  <section id="hike">
-    <ul id="hike_list">
+<section id="hike">
       <!-- boucles php -->
       <?php
       foreach ($hikes as $hike) :
       ?>
-        <li class="hike_card">
+        <div class="hike_info">
           <p id="hike_name"><?= $hike['name']; ?></p>
-
-          <img src="upload/<?= $hike['imgUrl']; ?>">
-
+          <div id="flex">
+          <div id="list_info">
           <p id="info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
               <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
             </svg> Departure : <?= $hike['departure']; ?></p>
@@ -56,9 +54,13 @@ $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
           <p id="info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
             </svg> Elevation gain : <?= $hike['elevationGain']; ?></p>
-
-        </li>
-        <p id="info"><?= $hike['description']; ?></p>
+      </div>
+      <div id="img">
+      <img src="upload/<?= $hike['imgUrl']; ?>">
+      </div>
+      </div>
+            <p id="info"><?= $hike['description']; ?></p>
+        </div>
         <!-- fin de boucle -->
       <?php
       endforeach;

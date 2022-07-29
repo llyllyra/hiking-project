@@ -23,6 +23,9 @@
 }
 
 body {
+  a {
+    text-decoration: none;
+  }
   font-family: "Metropolis-Regular", sans-serif;
   background-image: url("../img/bg2.jpg");
   background-size: cover;
