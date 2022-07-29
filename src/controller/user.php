@@ -1,22 +1,32 @@
 <?php
 declare(strict_types = 1);
 
+//Connection à la base de donnée
 require_once '../model/dbconnect.php';
 
-
-if(isset($_GET['page']) && $_GET['page'] == 'disconnect') {
-    require_once '../view/disconnect.php';
-    require_once '../model/disconnect.php';  
+//Si _GET[page] n'existe pas => erreur  404
+if(!isset($_GET['page'])) {
+    require_once '../view/error.php';
+    exit();
 }
 
-switch ($i) {
-    case 0:
-        echo "i égal 0";
+//En fonction de _GET[page] on récupère le model et la view
+$page = $_GET['page'];
+switch ($page) {
+    case 'disconnect':
+        require_once '../model/disconnect.php';
+        require_once '../view/disconnect.php';
         break;
-    case 1:
-        echo "i égal 1";
+    case 'login':
+        require_once '../model/login.php';
+        require_once '../view/login.php';
         break;
-    case 2:
-        echo "i égal 2";
+    case 'register':
+        require_once '../model/register.php';
+        require_once '../view/register.php';
+        break;
+    case 'account':
+        require_once '../model/account.php';
+        require_once '../view/account.php';       
         break;
 }
