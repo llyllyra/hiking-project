@@ -25,8 +25,5 @@ switch ($page) {
         require_once '../model/Register.php';
         require_once '../view/register.php';
         break;
-    case 'account':
-        require_once '../model/account.php';
-        require_once '../view/account.php';       
-        break;
+
 }

@@ -18,4 +18,4 @@ foreach ($hikes as $hike):
         <?php
     }
 endforeach;
-include_once '../view/inc/footer.inc.php'; ?>
+include_once '../view/inc/footer.inc.php';

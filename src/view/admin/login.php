@@ -1,5 +1,5 @@
-<?php 
-include_once 'inc/header.inc.php'; 
+<?php
+include_once '../view/inc/header.inc.php';
 
 // on teste la déclaration de nos variables
 if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -52,3 +52,4 @@ else {
         </div>     
     </form>
 </section>
+<?php include_once '../view/inc/footer.inc.php';
