@@ -18,6 +18,9 @@ if ($hike['user_Id'] == $_SESSION['user_id']){
 <section id="register">
     <h2>Do you really want to delete this hike ?</h2>
 </section>
+<button type="button" class="btn btn-secondary">YES</button>
+<button type="button" class="btn btn-danger">NO</button>
+
 <?php
 }
 endforeach;
