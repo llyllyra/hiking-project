@@ -1,5 +1,5 @@
 <?php
-include_once 'inc/header.inc.php';
+include_once '../view/inc/header.inc.php';
 include_once 'model/Sql.php';
 
 $sql = new Sql();
@@ -83,4 +83,4 @@ if (!isset($_SESSION['user_id'])) {
         </form>
     </section>
 <?php
-include_once 'inc/footer.inc.php'; ?>
+include_once '../view/inc/footer.inc.php'; ?>

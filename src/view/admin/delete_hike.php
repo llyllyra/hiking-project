@@ -1,5 +1,5 @@
 <?php
-include_once 'inc/header.inc.php';
+include_once '../view/inc/header.inc.php';
 require_once 'model/Sql.php';
 
 $sql = new Sql();
@@ -18,4 +18,4 @@ foreach ($hikes as $hike):
         <?php
     }
 endforeach;
-include_once 'inc/footer.inc.php'; ?>
+include_once '../view/inc/footer.inc.php'; ?>

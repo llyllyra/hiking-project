@@ -18,11 +18,11 @@ switch ($page) {
         require_once '../view/messages.php';     
         break;
     case 'login':
-        require_once '../model/login.php';
+        require_once '../model/Login.php';
         require_once '../view/login.php';
         break;
     case 'register':
-        require_once '../model/register.php';
+        require_once '../model/Register.php';
         require_once '../view/register.php';
         break;
     case 'account':
