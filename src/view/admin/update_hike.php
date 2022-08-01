@@ -1,16 +1,14 @@
 <?php
 include_once 'inc/header.inc.php';
 require_once 'core/db.php';
+require_once 'model/Sql.php';
 
-try {
-    $q = $pdo->prepare("SELECT * from hikes WHERE id = $_GET[id]");
-    $q->execute();
-}   catch(Exception $e) {
-    echo $e->getMessage();
-    exit;
-}
-$hikes = $q->fetchAll(PDO::FETCH_ASSOC);
+$sql = new Sql();
+$hikes = $sql->getHikebyid($_GET['id']);
+
 foreach ($hikes as $hike):
+
+
 
 //On vérifie que la rando appartienne à l'utilisateur
 if ($hike['user_Id'] == $_SESSION['user_id']){
@@ -62,15 +60,8 @@ if ($hike['user_Id'] == $_SESSION['user_id']){
         <!-- ajout de tags -->
         <?php
         // reprendre la db car inconnue
-        require_once '../core/db.php';
-        try {
-            $q = $pdo->prepare("SELECT * from tags");
-            $q->execute();
-        } catch (Exception $e) {
-            echo $e->getMessage();
-            exit;
-        }
-        $tags = $q->fetchAll(PDO::FETCH_ASSOC);
+        $tags = $sql->getTag();
+        
         foreach ($tags as $tag) :
         ?>
             <div class="form-check">
