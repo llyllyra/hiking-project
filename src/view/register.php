@@ -1,7 +1,7 @@
 <?php 
 include_once 'inc/header.inc.php'; 
 
-    // on teste la déclaration de nos variables
+// on teste la déclaration de nos variables
 if (isset($_POST['email']) && isset($_POST['first_name']) && isset($_POST['last_name']) &&  isset($_POST['login_name']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
 
     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -14,6 +14,7 @@ if (isset($_POST['email']) && isset($_POST['first_name']) && isset($_POST['last_
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
         $stmt->bindParam(':role', $role);
+        $stmt->bindParam(':confirmationMail', $confirmationMail);
     
         // insertion d'une ligne
         $firstName = htmlspecialchars($_POST['first_name']);

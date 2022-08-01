@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.min.css">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
 
     <title>DEV Randonneur</title>
 </head>
@@ -24,7 +25,6 @@
             <li><a href="/dashboard" alt="admin">ADMIN</a></li>
             <?php } ?>
             <li><a href="/home" alt="home">HOME</a></li>
-            <li><a href="/about" alt="about">ABOUT</a></li>
             <?php if (!isset($_SESSION['user_id'])) { ?>
             <li><a href="/user?page=register" alt="register">REGISTER</a></li>
             <li><a href="/user?page=login" alt="login">LOGIN</a></li>

@@ -15,7 +15,7 @@ $page = $_GET['page'];
 switch ($page) {
     case 'disconnect':
         require_once '../model/disconnect.php';
-        require_once '../view/disconnect.php';
+        require_once '../view/messages.php';     
         break;
     case 'login':
         require_once '../model/login.php';

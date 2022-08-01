@@ -58,7 +58,7 @@ body header nav ul li a:hover {
 
 #register {
   width: 90vw;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
   margin: 10px auto 20px auto;
@@ -66,12 +66,12 @@ body header nav ul li a:hover {
   max-width: 700px;
 }
 #register h2 {
-  color: #fff;
+  color: #222f3e;
   padding-top: 20px;
   text-align: center;
 }
 #register form label {
-  color: #fff;
+  color: #222f3e;
   font-weight: bold;
 }
 #register form .mb-3 {
@@ -102,10 +102,10 @@ main #hike {
   display: flex;
 }
 main #hike .hike_info {
-  background-color: #222f3e;
-  color: #fff;
-  -webkit-box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
-  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  color: #222f3e;
   border-radius: 10px;
   width: 800px;
   margin: 80px auto;
@@ -130,16 +130,16 @@ main #hike .hike_info p #info {
   display: block;
 }
 main #hike #description {
-  background-color: #222f3e;
-  color: #fff;
-  -webkit-box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
-  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  color: #222f3e;
   border-radius: 10px;
   width: 800px;
   margin: 80px auto;
 }
 
-body main section#disconnect {
+body main section#message_section {
   width: 100vw;
   height: 80vh;
   display: -webkit-box;
@@ -152,7 +152,7 @@ body main section#disconnect {
       -ms-flex-align: center;
           align-items: center;
 }
-body main section#disconnect #disconnect_message {
+body main section#message_section #message {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -174,9 +174,114 @@ body main section#disconnect #disconnect_message {
   box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
 }
 @media screen and (min-width: 768px) {
-  body main section#disconnect #disconnect_message {
+  body main section#message_section #message {
     width: 50%;
   }
+}
+
+body main section {
+  color: #222f3e;
+  max-width: 1520px;
+}
+@media screen and (min-width: 845px) {
+  body main section {
+    margin: 0 auto;
+  }
+  body main section #search_bar {
+    height: 60px;
+    width: 100%;
+    background-color: #6f95c1;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 1520px;
+    margin: 0 auto;
+  }
+  body main section #search_bar div {
+    width: 50%;
+    padding: 10px 0 0 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  body main section #search_bar div#search {
+    color: #000;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    padding: 8px 30px 8px 0;
+  }
+  body main section #search_bar div#search input {
+    width: 200px;
+  }
+  body main section #search_bar div#search button {
+    background-color: #222f3e;
+  }
+  body main section #search_bar div#search button:hover {
+    background-color: #0d6efd;
+  }
+  body main section ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(365px, 1fr));
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    text-align: center;
+    padding: 0px;
+  }
+  body main section ul li div {
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+    box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+    color: #222f3e;
+    border-radius: 10px;
+    width: 300px;
+    margin: 25px auto;
+  }
+  body main section ul li p#hike_name {
+    padding-top: 5px;
+    height: 55px;
+    font-weight: bold;
+    color: #222f3e;
+  }
+  body main section ul li p#info {
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  body main section ul li img {
+    width: 300px;
+    border-top: 1px solid #222f3e;
+    border-bottom: 1px solid #222f3e;
+  }
+}
+body main section ul li div {
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  color: #222f3e;
+  border-radius: 10px;
+  width: 360px;
+  margin: 25px auto;
+}
+body main section ul li p {
+  margin: 5px;
+}
+body main section ul li p#hike_name {
+  height: 50px;
+  color: #222f3e;
+}
+body main section ul li p#info {
+  text-align: left;
+  margin-left: 10px;
+}
+body main section ul li img {
+  width: 360px;
 }
 
 @font-face {
@@ -207,48 +312,5 @@ body a {
   body {
     background: url("../img/bg_screen.png") no-repeat center center fixed;
     background-size: cover;
-  }
-}
-body main section {
-  color: #fff;
-  max-width: 1520px;
-}
-@media screen and (min-width: 845px) {
-  body main section {
-    margin: 0 auto;
-  }
-  body main section ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    text-align: center;
-    padding: 0px;
-  }
-  body main section ul li {
-    background-color: #222f3e;
-    color: #fff;
-    -webkit-box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
-    box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
-    border-radius: 10px;
-    width: 360px;
-    margin: 25px auto;
-  }
-  body main section ul li p {
-    margin: 5px;
-  }
-  body main section ul li p#hike_name {
-    height: 50px;
-    color: #fff;
-  }
-  body main section ul li p#info {
-    text-align: left;
-    margin-left: 10px;
-  }
-  body main section ul li img {
-    width: 360px;
   }
 }

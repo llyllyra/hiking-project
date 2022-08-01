@@ -4,6 +4,7 @@
 @import "_error.scss";
 @import "_hike.scss";
 @import "_messages.scss";
+@import "_homepage.scss";
 
 // font face
 @font-face {
@@ -36,45 +37,5 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  }
-  main {
-    section {
-      color: #fff;
-      max-width: 1520px;
-      @media screen and(min-width: 845px) {
-        margin: 0 auto;
-        ul {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-          align-items: center;
-          align-content: center;
-          text-align: center;
-          padding: 0px;
-          li {
-            background-color: #222f3e;
-            color: #fff;
-            -webkit-box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
-            box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.59);
-            border-radius: 10px;
-            width: 360px;
-            margin: 25px auto;
-            p {
-              margin: 5px;
-              &#hike_name {
-                height: 50px;
-                color: #fff;
-              }
-              &#info {
-                text-align: left;
-                margin-left: 10px;
-              }
-            }
-            img {
-              width: 360px;
-            }
-          }
-        }
-      }
-    }
   }
 }

@@ -1,13 +1,13 @@
 body {
   main {
     section {
-      &#disconnect {
+      &#message_section {
         width: 100vw;
         height: 80vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        #disconnect_message {
+        #message {
           display: flex;
           align-items: center;
           justify-content: center;
