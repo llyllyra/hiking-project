@@ -5,63 +5,60 @@ require_once '../core/dbinfo.php';
 class Sql
 {
     private $pdo;
-    
+
     private function connection()
     {
         try {
             $pdo = new PDO(DNS, USER, PASSWORD);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
     }
-    
+
     //afficher toutes les randonnées
-    public function getHikes():array
+    public function getHikes(): array
     {
         $pdo = $this->connection();
         try {
             $q = $pdo->prepare("SELECT * from hikes");
             $q->execute();
-        }   catch(Exception $e) {
+        } catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
         return $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
     // Afficher les randonnée par id
-    public function getHikeById(int $id) :array
+    public function getHikeById(int $id): array
     {
-        $pdo =$this->connection();
-        
+        $pdo = $this->connection();
+
         try {
             $q = $pdo->prepare("SELECT *, user.nickname, date_format(h.createdDate, '%D %M  %Y') as date
                             from hikes h
                                 inner join user   on user.id = h.user_Id
                             WHERE h.id = $_GET[id]");
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
         $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
         return $hikes;
     }
-    
+
     // Afficher les randonnée par id user
-    public function getHikeByUser(int $id):array
+    public function getHikeByUser(int $id): array
     {
-        $pdo =$this->connection();
-        
-        try {     
+        $pdo = $this->connection();
+
+        try {
             $q = $pdo->prepare("SELECT * from hikes WHERE user_Id = $_SESSION[user_id]");
             $q->execute();
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
@@ -72,15 +69,14 @@ class Sql
 
     // Afficher tous les utilisateurs 
 
-    public function getUser():array
+    public function getUser(): array
     {
-        $pdo =$this->connection();
-        
+        $pdo = $this->connection();
+
         try {
             $q = $pdo->prepare("SELECT * from user");
             $q->execute();
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
@@ -88,62 +84,75 @@ class Sql
         return $users;
     }
 
-        // delete user
-    
-        public function delUser(){
-            $pdo =$this->connection();
-            try {
-                $d = $pdo->prepare("DELETE FROM `user` WHERE id = :id");
-                $d->bindParam('id', $id);
-                $id = $_GET["id"];
-                $d->execute();
-                $message = "vous avez bien effacé l'utilisateur";
-                require_once "../view/messages.php";
-                header('Refresh: 2, url=user');
-                exit();
-            }
-            catch (Exception $e) {
-                echo $e->getMessage();
-                exit;
-            }
-            
+    // delete user
+
+    public function delUser()
+    {
+        $pdo = $this->connection();
+        try {
+            $d = $pdo->prepare("DELETE FROM `user` WHERE id = :id");
+            $d->bindParam('id', $id);
+            $id = $_GET["id"];
+            $d->execute();
+            $message = "vous avez bien effacé l'utilisateur";
+            require_once "../view/messages.php";
+            header('Refresh: 2, url=user');
+            exit();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            exit;
+        }
     }
 
-        // Afficher les utilisateur par id
-        public function getUserById() :array
-        {
+        // Afficher les infos des utilisateurs par id
+        public function getUserInfo():array{
             $pdo =$this->connection();
-            
             try {
-                $q = $pdo->prepare("SELECT * FROM user WHERE id : id");
+                $q = $pdo->prepare("SELECT * FROM user WHERE id = $_GET[id]");
+                $q->execute();
             }
             catch (Exception $e) {
                 echo $e->getMessage();
                 exit;
             }
-            $user = $q->fetchAll(PDO::FETCH_ASSOC);
-            return $user;
+            return $users = $q->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        
-    
+    // Afficher les utilisateur par id
+    public function getUserById(): array
+    {
+        $pdo = $this->connection();
+
+        try {
+            $q = $pdo->prepare("SELECT * FROM user WHERE id : id");
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            exit;
+        }
+        $user = $q->fetchAll(PDO::FETCH_ASSOC);
+        return $user;
+    }
+
+
+
     // Afficher les randonnée par id pour l'effacer
-    public function getDelHike($id):array{
-        $pdo =$this->connection();
+    public function getDelHike($id): array
+    {
+        $pdo = $this->connection();
         try {
             $q = $pdo->prepare("SELECT name, user_Id, id from hikes WHERE id = $_GET[id]");
             $q->execute();
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
         return $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
     // Afficher la list des tags
-    public function getTag() :array{
-        $pdo =$this->connection();
+    public function getTag(): array
+    {
+        $pdo = $this->connection();
         try {
             $q = $pdo->prepare("SELECT * from tags");
             $q->execute();
@@ -154,11 +163,12 @@ class Sql
         $tags = $q->fetchAll(PDO::FETCH_ASSOC);
         return $tags;
     }
-    
+
     //ajout
-    
-    public  function addHikes(){
-    $pdo =$this->connection();
+
+    public  function addHikes()
+    {
+        $pdo = $this->connection();
         $stmt = $pdo->prepare(
             "INSERT INTO hikes (name, departure, arrive, difficulty, distance, duration, elevationGain, description, tags_id, createdDate, user_Id) VALUES (:name, :departure, :arrive, :difficulty, :distance, :duration, :elevationgain, :description, :tags, :date, :user)"
         );
@@ -173,7 +183,7 @@ class Sql
         $stmt->bindParam(':tags', $tags);
         $stmt->bindParam(':date', $date);
         $stmt->bindParam(':user', $user);
-    
+
         // insertion d'une ligne
         $name = $_POST['name'];
         $departure = $_POST['departure'];
@@ -186,26 +196,28 @@ class Sql
         $tags = implode(';', $_POST['tags']);
         $date = date('Y-m-d');
         $user = $_SESSION['user_id'];
-    
+
         $stmt->execute();
-        
+
         $message = "vous avez bien ajouter la randonnée";
         require_once "../view/messages.php";
         header('Refresh: 2, url=my_hikes');
         exit();
     }
-    
-    public function addUser(){
-        $pdo =$this->connection();
+
+    public function addUser()
+    {
+        $pdo = $this->connection();
     }
-    
+
     //modification
-    
-    
+
+
     // delete
-    
-    public function delHikes(){
-        $pdo =$this->connection();
+
+    public function delHikes()
+    {
+        $pdo = $this->connection();
         try {
             $d = $pdo->prepare("DELETE FROM `hikes` WHERE id = :id");
             $d->bindParam('id', $id);
@@ -215,12 +227,9 @@ class Sql
             require_once "../view/messages.php";
             header('Refresh: 2, url=my_hikes');
             exit();
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
-        
-}
-
+    }
 }
