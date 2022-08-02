@@ -4,7 +4,6 @@ $routes = [
     'GET' => [
         '/' => '../view/homepage.php',
         '/home' => '../view/homepage.php',
-        '/dashboard' => '../controller/admin/admin.php',
         '/error' => '../view/error.php',
         '/about' => '../view/about.php',
         '/add_hike' => '../view/admin/add_hike.php',
