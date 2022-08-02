@@ -6,7 +6,7 @@ $sql = new Sql();
 $hikes= $sql->getDelHike($_GET['id']);
 foreach ($hikes as $hike):
 //On vérifie que la rando appartienne à l'utilisateur
-    if ($hike['user_Id'] == $_SESSION['user_id']) {
+    if ($hike['user_Id'] == $_SESSION['user_id'] || $_SESSION['role'] === 'admin') {
         ?>
         <section id="register">
             <h2>Do you really want to delete this hike <?= $hike['name'] ?> ?</h2>

@@ -25,6 +25,7 @@ $routes = [
         '/login_submit' => '../view/admin/login.php',
         '/add_hike' => '../controller/admin/addHikes.php',
         '/update' => '../controller/admin/updateHikes.php',
+        '/connexion' => '../controller/admin/connexion.php'
         
     ],
 ];

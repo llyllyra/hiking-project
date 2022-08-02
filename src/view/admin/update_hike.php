@@ -14,7 +14,7 @@ $hikes = $sql->getHikeById($_GET["id"]);
 foreach ($hikes as $hike):
 
 //On vérifie que la rando appartienne à l'utilisateur
-    if ($hike['user_Id'] == $_SESSION['user_id']){
+    if ($hike['user_Id'] == $_SESSION['user_id'] || $_SESSION['role'] === "admin"){
         ?>
         <section id="register">
             <h2>Update hike</h2>
