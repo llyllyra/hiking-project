@@ -17,7 +17,8 @@ $routes = [
         '/deleteOneHike' => '../controller/admin/deleteHike.php',
         '/disconnect' => '../view/admin/logout.php',
         '/login' => '../view/admin/login.php',
-        '/account' => '../view/admin/account.php'
+        '/account' => '../view/admin/account.php',
+        '/user' => '../view/admin/users.php'
     ],
     // Routes de la méthode POST
     'POST' => [

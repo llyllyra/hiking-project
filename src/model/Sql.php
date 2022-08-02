@@ -57,7 +57,7 @@ class Sql
     {
         $pdo =$this->connection();
         
-        try {
+        try {     
             $q = $pdo->prepare("SELECT * from hikes WHERE user_Id = $_SESSION[user_id]");
             $q->execute();
         }
@@ -67,6 +67,46 @@ class Sql
         }
         $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
         return $hikes;
+    }
+
+
+    // Afficher tous les utilisateurs 
+
+    public function getUser():array
+    {
+        $pdo =$this->connection();
+        
+        try {
+            $q = $pdo->prepare("SELECT * from user");
+            $q->execute();
+        }
+        catch (Exception $e) {
+            echo $e->getMessage();
+            exit;
+        }
+        $users = $q->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
+
+        // delete user
+    
+        public function delUser(){
+            $pdo =$this->connection();
+            try {
+                $d = $pdo->prepare("DELETE FROM `user` WHERE id = :id");
+                $d->bindParam('id', $id);
+                $id = $_GET["id"];
+                $d->execute();
+                $message = "vous avez bien effacé l'utilisateur";
+                require_once "../view/messages.php";
+                header('Refresh: 2, url=user');
+                exit();
+            }
+            catch (Exception $e) {
+                echo $e->getMessage();
+                exit;
+            }
+            
     }
     
     // Afficher les randonnée par id pour l'effacer
