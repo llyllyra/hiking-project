@@ -46,4 +46,38 @@ body {
       }
     }
   }
+  #search_bar {
+    height: 60px;
+    width: 100%;
+    background-color: #6f95c1;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    max-width: 1520px;
+    margin: 0 auto;
+    div {
+      width: 50%;
+      padding: 10px 0 0 30px;
+      display: flex;
+      &#search {
+        color: #000;
+        justify-content: flex-end;
+        padding: 8px 30px 8px 0;
+        display: flex;
+        form {
+          display: flex;
+          input {
+            width: 200px;
+          }
+          button {
+            background-color: #222f3e;
+            &:hover {
+              background-color: #0d6efd;
+            }
+          }
+        }
+      }
+    }
+  }
 }

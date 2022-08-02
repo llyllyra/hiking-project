@@ -1,6 +1,6 @@
 <?php
 require_once '../core/db.php';
-
+ //todo faire la factorisation
 //Récupérer les infos de la base de données pour l'utilisateur
 try {
     $q = $pdo->prepare("SELECT * from user WHERE id = $_SESSION[user_id]");

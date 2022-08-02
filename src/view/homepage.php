@@ -1,17 +1,12 @@
 <?php
 include_once 'inc/header.inc.php';
-require_once 'core/db.php';
+require_once 'model/Sql.php';
 
-try {
-    $q = $pdo->prepare("SELECT * from hikes");
-    $q->execute();
-}   catch(Exception $e) {
-    echo $e->getMessage();
-    exit;
-}
-$hikes = $q->fetchAll(PDO::FETCH_ASSOC);
+
+// Utilisé la class sql pour afficher la liste des randonnée (voir dans model/Sql.php)
+$sql = new Sql();
+$hikes = $sql->getHikes();
 ?>
-
   <section>
     <div id="search_bar">
       <div>Marche ou code !</div>

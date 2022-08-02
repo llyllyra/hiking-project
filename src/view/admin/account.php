@@ -1,5 +1,5 @@
-<?php 
-include_once 'inc/header.inc.php'; 
+<?php
+include_once '../view/inc/header.inc.php';
 ?>
 
 <section id="register">
@@ -38,4 +38,4 @@ include_once 'inc/header.inc.php';
         </div>     
     </form>
 </section>
-<?php include_once 'inc/footer.inc.php'; ?>
+<?php include_once '../view/inc/footer.inc.php';

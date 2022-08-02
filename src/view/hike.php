@@ -8,13 +8,18 @@ if (!isset($_GET['id'])) {
 }
 try {
   // select l'id de hikes
-  $q = $pdo->prepare("SELECT * from hikes WHERE id = $_GET[id]");
+  $q = $pdo->prepare("SELECT *, user.nickname, date_format(h.createdDate, '%D %M  %Y') as date
+                            from hikes h
+                                inner join user   on user.id = h.user_Id
+                            WHERE h.id = $_GET[id]");
   $q->execute();
 } catch (Exception $e) {
   echo $e->getMessage();
   exit;
 }
 $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 <section id="hike">
       <!-- boucles php -->
@@ -22,7 +27,9 @@ $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
       foreach ($hikes as $hike) :
       ?>
         <div class="hike_info">
+          
           <p id="hike_name"><?= $hike['name']; ?></p>
+            <p>poster par  <?= $hike['nickname']?>  Add date : <?= $hike['date']; ?></p>
           <div id="flex">
           <div id="list_info">
           <p id="info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
@@ -46,10 +53,7 @@ $hikes = $q->fetchAll(PDO::FETCH_ASSOC);
               <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z" />
             </svg> Difficulty : <?= $hike['difficulty']; ?></p>
 
-          <p id="info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
-              <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
-              <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-            </svg> Add date : <?= $hike['createdDate']; ?></p>
+          
 
           <p id="info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
