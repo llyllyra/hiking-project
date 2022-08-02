@@ -9,11 +9,15 @@ foreach ($hikes as $hike):
     if ($hike['user_Id'] == $_SESSION['user_id']) {
         ?>
         <section id="register">
-            <h2>Do you really want to delete this hike <?= $hike['name'] ?> ?</h2>
-            <form action="deleteOneHike">
-                <button name="id" value="<?= $hike["id"] ?>">Yes</button>
-            </form>
-            <a href="my_hikes">Retour en arrière</a>
+            <h2>Do you really want to delete this hike ?<br /><?= $hike['name'] ?></h2>
+            <div class="action">
+                <form action="deleteOneHike">
+                    <button name="id" value="<?= $hike["id"] ?>" class="btn btn-success">Yes</button>
+                </form>
+                <form action="my_hikes">
+                    <button class="btn btn-danger">Non</button>
+                </form>
+            </div>
         </section>
         <?php
     }
