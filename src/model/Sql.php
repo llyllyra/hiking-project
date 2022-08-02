@@ -39,7 +39,7 @@ class Sql
     {
         $pdo = $this->connection();
         try {
-            $q = $pdo->prepare("SELECT *, u.nickname, h.id as hikeId from hikes h join user u on u.id = h.user_Id");
+            $q = $pdo->prepare("SELECT *, u.nickname, h.id as hikeId from hikes h join user u on u.id = h.user_Id ORDER BY hikeId");
             $q->execute();
         }
         catch (Exception $e) {
@@ -164,50 +164,8 @@ class Sql
         $tags = implode(';', $_POST['tags']);
         $date = date('Y-m-d');
         $user= $_SESSION['user_id'];
-    
-    
-        $target_dir = "upload/";
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    
-        $uploadOk = 1;
-        //Récupérer l'extension du fichier
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        // Check if image file is a actual image or fake image
-        if(isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-            if($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
-            }
-        }
-        //On accepete que les fichiers dont l'extension est jpg, png, jpeg ou gif
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif" ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
-        }
-        // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-            exit();
-            // if everything is ok, try to upload file
-        } else {
         
-            //Renommer le fichier avant l'upload. Le nom du fichier est microtime().extension
-            $temp = explode(".", $_FILES["fileToUpload"]["name"]);
-            $newfilename = round(microtime(true)) . '.' . end($temp);
-        
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "upload/" . $newfilename)) {
-                $imgUrl = $newfilename;
-            } else {
-                echo "Sorry, there was an error uploading your file.";
-                exit();
-            }
-        }
-        
+        $stmt->execute();
         $message = "vous avez bien ajouter la randonnée";
         require_once "../view/messages.php";
         header('Refresh: 2, url=my_hikes');

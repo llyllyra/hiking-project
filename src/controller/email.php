@@ -20,7 +20,7 @@ $mail->Username = "randodev02@gmail.com";  // SMTP username
 $mail->Password = 'chimciwjsvlnbtsb';         // SMTP password
 
 $mail->setFrom('randodev02@gmail.com', 'randoDev');
-$mail->addAddress('llyllyrallylly@gmail.com', 'name-is-optional');
+$mail->addAddress('llyllyrallylly@gmail.com', 'llyllyra');
 
 $mail->isHTML(true);                      // Set email format to HTML
 $mail->Subject = 'Thanks for your subscription';
