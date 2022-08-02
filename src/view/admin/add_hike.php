@@ -11,23 +11,21 @@ if (!isset($_SESSION['user_id'])) {
 }
 ?>
 
+
     <section id="register">
         <h2>Add hike</h2>
         <form method="post" action="add_hike" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" aria-describedby="name"
-                       placeholder="Enter the name of your hike" required>
+                <input type="text" name="name" class="form-control" aria-describedby="name" placeholder="Enter the name of your hike" required>
             </div>
             <div class="mb-3">
                 <label for="departure" class="form-label">Departure</label>
-                <input type="text" name="departure" class="form-control" aria-describedby="departure"
-                       placeholder="Enter departure point" required>
+                <input type="text" name="departure" class="form-control" aria-describedby="departure" placeholder="Enter departure point" required>
             </div>
             <div class="mb-3">
                 <label for="arrive" class="form-label">Arrive</label>
-                <input type="text" name="arrive" class="form-control" aria-describedby="arrive"
-                       placeholder="Enter arrived point" required>
+                <input type="text" name="arrive" class="form-control" aria-describedby="arrive" placeholder="Enter arrived point" required>
             </div>
             <div class="mb-3">
                 <label for="difficulty" class="form-label">Difficulty</label>
@@ -43,18 +41,19 @@ if (!isset($_SESSION['user_id'])) {
             </div>
             <div class="mb-3">
                 <label for="distance" class="form-label">Distance</label>
-                <input type="number" name="distance" class="form-control" aria-describedby="distance"
-                       placeholder="Enter distance" required>
+                <input type="text" name="distance" class="form-control" aria-describedby="distance" placeholder="Enter distance" required>
             </div>
             <div class="mb-3">
                 <label for="duration" class="form-label">Duration</label>
-                <input type="number" name="duration" class="form-control" aria-describedby="duration"
-                       placeholder="Enter duration" required>
+                <input type="text" name="duration" class="form-control" aria-describedby="duration" placeholder="Enter duration" required>
             </div>
             <div class="mb-3">
                 <label for="elevationgain" class="form-label">Elevation gain</label>
-                <input type="number" name="elevationgain" class="form-control" aria-describedby="elevationgain"
-                       placeholder="Enter elevation gain" required>
+                <input type="text" name="elevationgain" class="form-control" aria-describedby="elevationgain" placeholder="Enter elevation gain" required>
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Picture</label>
+                <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
@@ -64,12 +63,19 @@ if (!isset($_SESSION['user_id'])) {
             <!-- ajout de tags -->
             <?php
             // reprendre la db car inconnue
-            $tags = $sql->getTag();
+            require_once '../core/db.php';
+            try {
+                $q = $pdo->prepare("SELECT * from tags");
+                $q->execute();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+                exit;
+            }
+            $tags = $q->fetchAll(PDO::FETCH_ASSOC);
             foreach ($tags as $tag) :
                 ?>
-                <div class="form-check">
-                    <input name="tags[]" value="<?= $tag['id']; ?>" class="form-check-input" type="checkbox"
-                           id="flexCheckDefault">
+                <div class="form-check mb-3">
+                    <input name="tags[]" value="<?= $tag['id']; ?>" class="form-check-input" type="checkbox" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         <?= $tag['name']; ?>
                     </label>
@@ -82,5 +88,4 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </form>
     </section>
-<?php
-include_once '../view/inc/footer.inc.php'; ?>
+<?php include_once 'inc/footer.inc.php'; ?>

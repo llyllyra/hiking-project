@@ -6,10 +6,7 @@ require_once 'model/Sql.php';
 // Utilisé la class sql pour afficher la liste des randonnée (voir dans model/Sql.php)
 $sql = new Sql();
 $hikes = $sql->getHikes();
-
-
 ?>
-
   <section>
     <div id="search_bar">
       <div>Marche ou code !</div>
