@@ -23,6 +23,7 @@
         <ul class="navbar-item">
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
             <li><a href="/dashboard" alt="admin">ADMIN</a></li>
+            <li><a href="/user" alt='user'>USER</a></li>
             <?php } ?>
             <li><a href="/home" alt="home">HOME</a></li>
             <?php if (!isset($_SESSION['user_id'])) { ?>

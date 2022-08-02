@@ -10,13 +10,14 @@ if (!isset($_SESSION['user_id'])) {
 
 
 $sql = new Sql();
-$users = $sql->getUser($_["user_id"]);
+$users = $sql->getUser();
+
 
 ?>
 <main>
     <section>
         <?php
-        if (count($user) === 0) {
+        if (count($users) === 0) {
         ?>
             <h1>Vous n'avez pas ajouter de randonnée</h1>
         <?php

@@ -18,7 +18,10 @@ $routes = [
         '/disconnect' => '../view/admin/logout.php',
         '/login' => '../view/admin/login.php',
         '/account' => '../view/admin/account.php',
-        '/user' => '../view/admin/users.php'
+        '/user' => '../view/admin/users.php',
+        '/deleteOneUser' => '../controller/admin/deleteUser.php',
+        '/update_user' => '../view/admin/update_user.php',
+        '/delete_user' => '../view/admin/delete_user.php',
     ],
     // Routes de la méthode POST
     'POST' => [

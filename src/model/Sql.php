@@ -108,6 +108,24 @@ class Sql
             }
             
     }
+
+        // Afficher les utilisateur par id
+        public function getUserById() :array
+        {
+            $pdo =$this->connection();
+            
+            try {
+                $q = $pdo->prepare("SELECT * FROM user WHERE id : id");
+            }
+            catch (Exception $e) {
+                echo $e->getMessage();
+                exit;
+            }
+            $user = $q->fetchAll(PDO::FETCH_ASSOC);
+            return $user;
+        }
+
+        
     
     // Afficher les randonnée par id pour l'effacer
     public function getDelHike($id):array{

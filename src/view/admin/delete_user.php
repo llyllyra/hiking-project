@@ -3,8 +3,7 @@ include_once '../view/inc/header.inc.php';
 require_once 'model/Sql.php';
 
 $sql = new Sql();
-$user= $sql->delUser($_GET['id']);
-foreach ($user as $user):
+$user= $sql->Deluser($_GET['id']);
 //On vérifie que la rando appartienne à l'utilisateur
     if ($user['user_Id'] == $_SESSION['user_id']) {
         ?>
@@ -13,9 +12,7 @@ foreach ($user as $user):
             <form action="deleteOneuser">
                 <button name="id" value="<?= $user["id"] ?>">Yes</button>
             </form>
-            <a href="my_users">Retour en arrière</a>
         </section>
         <?php
     }
-endforeach;
 include_once '../view/inc/footer.inc.php';
