@@ -131,6 +131,70 @@ class Sql
         return $user;
     }
     
+    // Afficher la list des tags
+    public function getTagById() :array{
+        $pdo =$this->connection();
+        try {
+            $q = $pdo->prepare("SELECT * from tags WHERE id = $_GET[id]");
+            $q->execute();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            exit;
+        }
+        $tag = $q->fetchAll(PDO::FETCH_ASSOC);
+        return $tag;
+    }
+    //Ajouter des tags
+    public  function addTags(){
+        $pdo =$this->connection();
+            $stmt = $pdo->prepare("INSERT INTO tags (name) VALUES (:name)");
+            $stmt->bindParam(':name', $name);
+        
+            // insertion d'une ligne
+            $name = $_POST['tag'];
+        
+            $stmt->execute();
+            
+            $message = "Tag added successfully";
+            require_once "../view/messages.php";
+            header('Refresh: 2, url=admin?page=tags');
+            exit();
+        }
+    //Editer des tags
+    public  function editTags($id){
+        $pdo =$this->connection();
+            $stmt = $pdo->prepare("UPDATE tags SET name = :name WHERE id = $id");
+            $stmt->bindParam(':name', $name);
+        
+            // insertion d'une ligne
+            $name = $_POST['tag'];
+        
+            $stmt->execute();
+            
+            $message = "Tag updated successfully";
+            require_once "../view/messages.php";
+            header('Refresh: 2, url=admin?page=tags');
+            exit();
+        }
+    //Supprimer un tag
+    public function deleteTag(){
+        $pdo =$this->connection();
+        try {
+            $d = $pdo->prepare("DELETE FROM `tags` WHERE id = :id");
+            $d->bindParam('id', $id);
+            $id = $_GET["id"];
+            $d->execute();
+            $message = "Tag deleted successfully";
+            require_once "../view/messages.php";
+            header('Refresh: 2, url=admin?page=tags');
+            exit();
+        }
+        catch (Exception $e) {
+            echo $e->getMessage();
+            exit;
+        }       
+}
+
     //ajout
     
     public function addHikes()

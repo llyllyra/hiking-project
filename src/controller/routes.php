@@ -17,6 +17,7 @@ $routes = [
         '/disconnect' => '../view/admin/logout.php',
         '/login' => '../view/admin/login.php',
         '/account' => '../view/admin/account.php',
+        '/admin' => '../controller/admin/admin.php',
         '/mail' => '../controller/email.php'
     ],
     // Routes de la méthode POST
@@ -24,6 +25,7 @@ $routes = [
         '/user' => '../controller/user.php',
         '/login_submit' => '../view/admin/login.php',
         '/add_hike' => '../controller/admin/addHikes.php',
+        '/admin' => '../controller/admin/admin.php',
         '/update' => '../controller/admin/updateHikes.php',
         '/connexion' => '../controller/admin/connexion.php'
         

@@ -55,6 +55,50 @@ body header nav ul li a:hover {
   padding: 10px;
   border-radius: 6px;
 }
+body #search_bar {
+  height: 60px;
+  width: 100%;
+  background-color: #6f95c1;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1520px;
+  margin: 0 auto;
+}
+body #search_bar div {
+  width: 50%;
+  padding: 10px 0 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+body #search_bar div#search {
+  color: #000;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 8px 30px 8px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+body #search_bar div#search form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+body #search_bar div#search form input {
+  width: 200px;
+}
+body #search_bar div#search form button {
+  background-color: #222f3e;
+}
+body #search_bar div#search form button:hover {
+  background-color: #0d6efd;
+}
 
 #register {
   width: 90vw;
@@ -89,6 +133,18 @@ body header nav ul li a:hover {
 }
 #register form .btn_box button {
   margin: 20px auto;
+}
+#register div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#register div form button {
+  margin: 20px;
 }
 
 .error .error-title {
@@ -187,41 +243,101 @@ body main section {
   body main section {
     margin: 0 auto;
   }
-  body main section #search_bar {
-    height: 60px;
-    width: 100%;
-    background-color: #6f95c1;
-    color: #fff;
-    font-size: 24px;
+  body main section ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(365px, 1fr));
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    text-align: center;
+    padding: 0px;
+  }
+  body main section ul li div {
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+    box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+    color: #222f3e;
+    border-radius: 10px;
+    width: 300px;
+    margin: 25px auto;
+  }
+  body main section ul li p#hike_name {
+    padding-top: 5px;
+    height: 55px;
     font-weight: bold;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    max-width: 1520px;
+    color: #222f3e;
+  }
+  body main section ul li p#info {
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  body main section ul li img {
+    width: 300px;
+    height: 200px;
+    border-top: 1px solid #222f3e;
+    border-bottom: 1px solid #222f3e;
+  }
+}
+body main section ul li div {
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  color: #222f3e;
+  border-radius: 10px;
+  width: 360px;
+  margin: 25px auto;
+}
+body main section ul li p {
+  margin: 5px;
+}
+body main section ul li p#hike_name {
+  height: 50px;
+  color: #222f3e;
+}
+body main section ul li p#info {
+  text-align: left;
+  margin-left: 10px;
+}
+body main section ul li img {
+  width: 360px;
+  height: 200px;
+}
+
+body main section {
+  color: #222f3e;
+  max-width: 1520px;
+}
+body main section table.table {
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+}
+body main section table.table .thead-dark {
+  height: 60px;
+  background-color: #6f95c1;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+body main section table.table tbody tr {
+  border-top: 1px solid #222f3e;
+}
+body main section table.table tbody tr td a {
+  text-decoration: none;
+  color: #000;
+}
+body main section table.table tbody tr td svg.modify {
+  color: darkolivegreen;
+}
+body main section table.table tbody tr td svg.delete {
+  color: red;
+}
+@media screen and (min-width: 845px) {
+  body main section {
     margin: 0 auto;
-  }
-  body main section #search_bar div {
-    width: 50%;
-    padding: 10px 0 0 30px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  body main section #search_bar div#search {
-    color: #000;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    padding: 8px 30px 8px 0;
-  }
-  body main section #search_bar div#search input {
-    width: 200px;
-  }
-  body main section #search_bar div#search button {
-    background-color: #222f3e;
-  }
-  body main section #search_bar div#search button:hover {
-    background-color: #0d6efd;
   }
   body main section ul {
     display: grid;
@@ -259,6 +375,12 @@ body main section {
     border-top: 1px solid #222f3e;
     border-bottom: 1px solid #222f3e;
   }
+  body main section ul li span a svg.modify {
+    color: rgb(187, 255, 0);
+  }
+  body main section ul li span a svg.delete {
+    color: rgb(255, 0, 0);
+  }
 }
 body main section ul li div {
   background-color: rgba(255, 255, 255, 0.8);
@@ -282,6 +404,143 @@ body main section ul li p#info {
 }
 body main section ul li img {
   width: 360px;
+  height: 200px;
+}
+
+body main section.admin {
+  color: #222f3e;
+  max-width: 1520px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+body main section.admin nav {
+  max-height: 200px;
+}
+body main section.admin nav .container-fluid .mb-0 {
+  font-size: 24px;
+  font-weight: bold;
+}
+body main section.admin nav .container-fluid .navbar-brand {
+  text-align: center;
+  height: 100%;
+  max-height: 40pxs;
+  width: 100%;
+  border-radius: 5px;
+}
+body main section.admin nav .container-fluid .navbar-brand:hover {
+  background-color: #6f95c1;
+  color: #fff;
+  font-weight: bold;
+}
+body main section.admin section.admin_content {
+  width: 100%;
+}
+body main section.admin section.admin_content h2 {
+  width: 100%;
+  height: 60px;
+  height: 60px;
+  background-color: #6f95c1;
+  color: #222f3e;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+}
+body main section.admin section.admin_content table.table {
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+}
+body main section.admin section.admin_content table.table .thead-dark {
+  height: 60px;
+  background-color: #6f95c1;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+body main section.admin section.admin_content table.table tbody tr {
+  border-top: 1px solid #222f3e;
+}
+body main section.admin section.admin_content table.table tbody tr td a {
+  text-decoration: none;
+  color: #000;
+}
+body main section.admin section.admin_content table.table tbody tr td svg.modify {
+  color: darkolivegreen;
+}
+body main section.admin section.admin_content table.table tbody tr td svg.delete {
+  color: red;
+}
+@media screen and (min-width: 845px) {
+  body main section.admin {
+    margin: 0 auto;
+  }
+  body main section.admin ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(365px, 1fr));
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    text-align: center;
+    padding: 0px;
+  }
+  body main section.admin ul li div {
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+    box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+    color: #222f3e;
+    border-radius: 10px;
+    width: 300px;
+    margin: 25px auto;
+  }
+  body main section.admin ul li p#hike_name {
+    padding-top: 5px;
+    height: 55px;
+    font-weight: bold;
+    color: #222f3e;
+  }
+  body main section.admin ul li p#info {
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  body main section.admin ul li img {
+    width: 300px;
+    border-top: 1px solid #222f3e;
+    border-bottom: 1px solid #222f3e;
+  }
+  body main section.admin ul li span a svg.modify {
+    color: rgb(187, 255, 0);
+  }
+  body main section.admin ul li span a svg.delete {
+    color: rgb(255, 0, 0);
+  }
+}
+body main section.admin ul li div {
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  color: #222f3e;
+  border-radius: 10px;
+  width: 360px;
+  margin: 25px auto;
+}
+body main section.admin ul li p {
+  margin: 5px;
+}
+body main section.admin ul li p#hike_name {
+  height: 50px;
+  color: #222f3e;
+}
+body main section.admin ul li p#info {
+  text-align: left;
+  margin-left: 10px;
+}
+body main section.admin ul li img {
+  width: 360px;
+  height: 200px;
 }
 
 @font-face {
