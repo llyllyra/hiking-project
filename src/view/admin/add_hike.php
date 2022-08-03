@@ -88,4 +88,5 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </form>
     </section>
-<?php include_once './../inc/footer.inc.php'; ?>
+<?php
+include_once '../view/inc/footer.inc.php';

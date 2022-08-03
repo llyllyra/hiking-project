@@ -7,7 +7,7 @@ include_once '../view/inc/header.inc.php';
             <span class="mb-0 h1">ADMIN</span>
         </div>
         <div class="container-fluid">
-            <a class="navbar-brand" href="/admin?page=users">USERS</a>
+            <a class="navbar-brand" href="/viewUser">USERS</a>
         </div>
         <div class="container-fluid">
             <a class="navbar-brand" href="/admin">HIKES</a>

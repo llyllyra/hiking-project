@@ -16,14 +16,13 @@ $routes = [
         '/deleteOneHike' => '../controller/admin/deleteHike.php',
         '/disconnect' => '../view/admin/logout.php',
         '/login' => '../view/admin/login.php',
-        '/account' => '../view/admin/account.php',
-        '/user' => '../view/admin/users.php',
         '/deleteOneUser' => '../controller/admin/deleteUser.php',
         '/update_user' => '../view/admin/update_user.php',
         '/delete_user' => '../view/admin/delete_user.php',
         '/account' => '../view/admin/account.php',
         '/admin' => '../controller/admin/admin.php',
-        '/mail' => '../controller/email.php'
+        '/mail' => '../controller/email.php',
+        '/viewUser' => '../view/admin/users.php',
     ],
     // Routes de la méthode POST
     'POST' => [

@@ -22,18 +22,18 @@
     <nav>
         <ul class="navbar-item">
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
-            <li><a href="/admin" alt="admin">ADMIN</a></li>
+                <li><a href="/admin" alt="admin">ADMIN</a></li>
             <?php } ?>
             <li><a href="/home" alt="home">HOME</a></li>
             <?php if (!isset($_SESSION['user_id'])) { ?>
-            <li><a href="/user?page=register" alt="register">REGISTER</a></li>
-            <li><a href="/login" alt="login">LOGIN</a></li>
+                <li><a href="/user?page=register" alt="register">REGISTER</a></li>
+                <li><a href="/login" alt="login">LOGIN</a></li>
             <?php }
             else { ?>
-            <li><a href="/my_hikes">MY HIKES</a></li>
-            <li><a href="/add_hike">ADD HIKE</a></li>
-            <li><a href="/account">MY ACCOUNT</a></li>
-            <li><a href="/disconnect">DISCONNECT</a></li>
+                <li><a href="/my_hikes">MY HIKES</a></li>
+                <li><a href="/add_hike">ADD HIKE</a></li>
+                <li><a href="/account">MY ACCOUNT</a></li>
+                <li><a href="/disconnect">DISCONNECT</a></li>
             <?php } ?>
         </ul>
     </nav>

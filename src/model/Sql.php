@@ -181,21 +181,6 @@ class Sql
         return $tags;
     }
     
-    // afficher le profil
-    
-    public function getUserbyId(){
-        $pdo = $this->connection();
-        try {
-            $q = $pdo->prepare("SELECT * FROM user WHERE id = $_SESSION[user_id] ");
-            $q->execute();
-        }
-        catch (Exception $e) {
-            echo $e->getMessage();
-            exit;
-        }
-        $user = $q->fetchAll(PDO::FETCH_ASSOC);
-        return $user;
-    }
     
     // Afficher la list des tags
     public function getTagById() :array{
@@ -355,13 +340,13 @@ class Sql
                 //$tags = implode(';', $_POST['tags']);
                 $date = date('Y-m-d');
                 $user = $_SESSION['user_id'];
-            
+               //TODO Changer l'user
             
                 //On execute l'insertion dans la bdd
                 $stmt->execute();
                 //On défini le message à afficher
                 $message = "Hike updated successfully. Redirection...";
-                //include_once 'messages.php';
+                require_once "../view/messages.php";
                 //Redirection vers home après 2 secondes
                 header("Refresh: 2;URL=my_hikes");
                 exit();
@@ -405,17 +390,20 @@ class Sql
             $password = $_POST['password'];
             //Récupérer les données de l'utilisateur
             $req = $pdo->prepare("SELECT * FROM user WHERE email = '$email'");
+
+
             $req->execute();
         
         
             foreach ($req as $row) {
-            
+
                 if (!password_verify($password, $row['password'])) {
-                    //Redicrection
+                    //Redirection
                     header('Location: wrong_password');
                     exit();
                 }
                 else {
+                    //avant de la session verifier aussi le si actif ou pas  -> si non, message qui dit de valider le mail et d'en renvoyer un.
                     //Définition de la session utilisateur
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['nickname'] = $row['nickame'];

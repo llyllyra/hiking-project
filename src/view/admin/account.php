@@ -1,13 +1,12 @@
 <?php
 include_once '../view/inc/header.inc.php';
 include_once 'model/Sql.php';
-
+   $b = "bonjour";
+   var_dump($b);
 $sql = new Sql();
 $users = $sql->getUserbyId();
 foreach ($users as $user):
 ?>
-
-
 <section id="register">
     <h2>MY ACCOUNT</h2>
     <form method="post" action="user?page=account" enctype="multipart/form-data">

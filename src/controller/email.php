@@ -20,10 +20,10 @@ $mail->Username = "randodev02@gmail.com";  // SMTP username
 $mail->Password = 'chimciwjsvlnbtsb';         // SMTP password
 
 $mail->setFrom('randodev02@gmail.com', 'randoDev');
-$mail->addAddress('llyllyrallylly@gmail.com', 'llyllyra');
+$mail->addAddress('llyllyrallylly@gmail.com', 'llyllyra'); // information du formulaire
 
 $mail->isHTML(true);                      // Set email format to HTML
 $mail->Subject = 'Thanks for your subscription';
-$mail->Body    = 'Nico, Dorian et marlene';
+$mail->Body    = 'Nico, Dorian et marlene';    // Avoir un message + lien pour valider l'inscription (qui dirige vers un script pour activer l'utilisateur)
 
 $mail->send();
