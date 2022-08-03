@@ -21,8 +21,8 @@ switch ($page) {
         require_once '../model/Login.php';
         require_once '../view/login.php';
         break;
-    case 'register':
-        require_once '../model/Register.php';
+    case 'Inscription':
+        require_once '../model/Inscription.php';
         require_once '../view/register.php';
         break;
 

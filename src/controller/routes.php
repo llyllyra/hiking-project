@@ -17,12 +17,15 @@ $routes = [
         '/disconnect' => '../view/admin/logout.php',
         '/login' => '../view/admin/login.php',
         '/deleteOneUser' => '../controller/admin/deleteUser.php',
-        '/update_user' => '../view/admin/update_user.php',
+        '/update_user' => '../view/admin/updateUserByAdmin.php',
         '/delete_user' => '../view/admin/delete_user.php',
+        '/updateUser' => '../view/admin/updateUser.php',
         '/account' => '../view/admin/account.php',
         '/admin' => '../controller/admin/admin.php',
-        '/mail' => '../controller/email.php',
+        '/mail' => '../controller/Email.php',
         '/viewUser' => '../view/admin/users.php',
+        '/register' => '../view/register.php',
+        '/confirmMail' => '../controller/confirmMail.php',
     ],
     // Routes de la méthode POST
     'POST' => [
@@ -30,8 +33,11 @@ $routes = [
         '/login_submit' => '../view/admin/login.php',
         '/add_hike' => '../controller/admin/addHikes.php',
         '/admin' => '../controller/admin/admin.php',
-        '/update' => '../controller/admin/updateHikes.php',
+        '/updateHike' => '../controller/admin/updateHikes.php',
+        '/updateUser' => '../controller/admin/update_User.php',
         '/connexion' => '../controller/admin/connexion.php',
-        
+        '/RegisterForm' => '../controller/register.php',
+
+
     ],
 ];

@@ -26,7 +26,7 @@
             <?php } ?>
             <li><a href="/home" alt="home">HOME</a></li>
             <?php if (!isset($_SESSION['user_id'])) { ?>
-                <li><a href="/user?page=register" alt="register">REGISTER</a></li>
+                <li><a href="/register" alt="register">REGISTER</a></li>
                 <li><a href="/login" alt="login">LOGIN</a></li>
             <?php }
             else { ?>

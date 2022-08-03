@@ -9,7 +9,7 @@ foreach ($hikes as $hike):
     if ($hike['user_Id'] == $_SESSION['user_id'] || $_SESSION['role'] === 'admin') {
         ?>
         <section id="register">
-            <h2>Do you really want to delete this hike <?= $hike['name'] ?> ?</h2>
+            <h2>Do you really want to delete this hike ?</h2>
             <form action="deleteOneHike">
                 <button name="id" value="<?= $hike["id"] ?>">Yes</button>
             </form>

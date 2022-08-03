@@ -15,4 +15,5 @@ $user= $sql->delUser($_GET['id']);
         </section>
         <?php
     }
+
 include_once '../view/inc/footer.inc.php';

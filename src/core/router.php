@@ -6,7 +6,7 @@ class Router
     protected array $routes = [];
 
     /*
-     * Les routes étant définies dans un autre fichier, je vais utiliser la méthode register()
+     * Les routes étant définies dans un autre fichier, je vais utiliser la méthode Inscription()
      * pour les importer dans ma classe et les stocker dans la propriété $routes
      */
     public function register(array $routes): void

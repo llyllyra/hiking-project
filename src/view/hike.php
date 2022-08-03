@@ -10,7 +10,7 @@ try {
   // select l'id de hikes
   $q = $pdo->prepare("SELECT *, user.nickname, date_format(h.createdDate, '%D %M  %Y') as date
                             from hikes h
-                                inner join user   on user.id = h.user_Id
+                            inner join user   on user.id = h.user_Id 
                             WHERE h.id = $_GET[id]");
   $q->execute();
 } catch (Exception $e) {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 require_once('../core/db.php');
 
-class Hikes extends HikesManager
+class Hikes
 {
 
     private $name;

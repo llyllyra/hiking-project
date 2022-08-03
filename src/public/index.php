@@ -12,7 +12,7 @@ $method = Request::method();
 // On instancie l'object $router
 $router = new Router();
 
-// On utilise la méthode register() pour stocker les routes du fichier routes.php dans
+// On utilise la méthode Inscription() pour stocker les routes du fichier routes.php dans
 // la propriété $routes du routeur.
 $router->register($routes);
 

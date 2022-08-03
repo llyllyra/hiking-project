@@ -2,16 +2,17 @@
 
 require_once '../core/dbinfo.php';
 
-class dbconnect {
-    public function connection (){
+class Dbconnect
+{
+    public function getConnection() : PDO
+    {
         try {
-            $pdo = new PDO(DNS , USER, PASSWORD);
+            $pdo = new PDO(DNS, USER, PASSWORD);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
-        }
-        catch(Exception $e){
+        } catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
-    }
-} 
+        }
+}

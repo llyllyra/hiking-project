@@ -18,7 +18,7 @@ foreach ($hikes as $hike):
         ?>
         <section id="register">
             <h2>Update hike</h2>
-            <form method="post" action="update?id=<?=$hike['id']?>" enctype="multipart/form-data">
+            <form method="post" action="updateHike?id=<?=$hike['id']?>" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Name</label>
                     <input type="text" name="name" class="form-control" aria-describedby="emailHelp" value="<?=$hike['name'];?>" required>
