@@ -485,13 +485,11 @@ class Sql
                     header('Location: home');
                     exit();
                 } else {
-                    //avant de la session verifier aussi le si actif ou pas  -> si non, message qui dit de valider le mail et d'en renvoyer un.
-                    //Définition de la session utilisateur
                     if($row["confirmation_email"] === "confirmed"){
                         $_SESSION['user_id'] = $row['id'];
                         $_SESSION['nickname'] = $row['nickame'];
                         $_SESSION['role'] = $row['role'];
-                        //Redicrection
+                        //Redirection
                         header('Location: home');
                         exit();
                     } else {

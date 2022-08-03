@@ -4,7 +4,7 @@ require_once 'model/Sql.php';
 
 $sql = new Register();
 
-$sql->register();
+$sql->register($_POST['email']);
 
 
 

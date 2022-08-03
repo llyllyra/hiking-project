@@ -4,6 +4,7 @@ require_once '../core/dbinfo.php';
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -21,61 +22,89 @@ class Register
         }
     }
 
-    public function register()
+    public function register($mail)
     {
         $pdo = $this->getConnection();
+;
+        var_dump($mail);
+        $req = $pdo->prepare("SELECT * FROM user WHERE email = '$mail'");
+        $req->execute();
+        $mails = $req->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($mails);
 
-        if (isset($_POST['email']) && isset($_POST['first_name']) && isset($_POST['last_name']) &&  isset($_POST['login_name']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
+          if(count($mails) === 0 ) {
+            echo 'bonjour';
+                if (isset($_POST['email']) && isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['login_name']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
 
-            if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                require_once '../core/db.php';
-                //enregistrer les données dans la base de données
-                $stmt = $pdo->prepare("INSERT INTO user (firstName, lastName, nickname, email, password, role, confirmation_email) VALUES (:firstname, :lastname, :loginname, :email, :password, :role, :confirmMail)");
-                $stmt->bindParam(':firstname', $firstName);
-                $stmt->bindParam(':lastname', $lastName);
-                $stmt->bindParam(':loginname', $loginName);
-                $stmt->bindParam(':email', $email);
-                $stmt->bindParam(':password', $password);
-                $stmt->bindParam(':role', $role);
-                $stmt->bindParam(':confirmMail', $confirmationMail);
+                    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                        require_once '../core/db.php';
+                        //enregistrer les données dans la base de données
+                        $stmt = $pdo->prepare("INSERT INTO user (firstName, lastName, nickname, email, password, role, confirmation_email) VALUES (:firstname, :lastname, :loginname, :email, :password, :role, :confirmMail)");
+                        $stmt->bindParam(':firstname', $firstName);
+                        $stmt->bindParam(':lastname', $lastName);
+                        $stmt->bindParam(':loginname', $loginName);
+                        $stmt->bindParam(':email', $email);
+                        $stmt->bindParam(':password', $password);
+                        $stmt->bindParam(':role', $role);
+                        $stmt->bindParam(':confirmMail', $confirmationMail);
 
-                // insertion d'une ligne
-                $firstName = htmlspecialchars($_POST['first_name']);
-                $lastName = htmlspecialchars($_POST['last_name']);
-                $loginName = htmlspecialchars($_POST['login_name']);
-                $email = htmlspecialchars($_POST['email']);
-                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                $role = "user";
-                $confirmationMail = "not_confirmed";
-                $stmt->execute();
-                $recupUser= $pdo->prepare("select * from user WHERE email = ?") ;
-                $recupUser->execute(array($email));
-                if($recupUser->rowCount()> 0){
-                    $userInfo = $recupUser->fetch();
-                    $_SESSION['id'] = $userInfo['id'];
+                        // insertion d'une ligne
+                        $firstName = htmlspecialchars($_POST['first_name']);
+                        $lastName = htmlspecialchars($_POST['last_name']);
+                        $loginName = htmlspecialchars($_POST['login_name']);
+                        $email = htmlspecialchars($_POST['email']);
+                        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                        $role = "user";
+                        $confirmationMail = "not_confirmed";
+                        $stmt->execute();
+                        $recupUser = $pdo->prepare("SELECT * FROM user WHERE email = ?");
+                        $recupUser->execute(array($email));
+                        if ($recupUser->rowCount() > 0) {
+                            $userInfo = $recupUser->fetch();
+                            $_SESSION['id'] = $userInfo['id'];
 
-                
-                $title = "Merci pour votre inscription";
-                $body = 'http://localhost:3000/confirmMail?id='.$_SESSION['id'];
-                $from =  "randodev02@gmail.com";
-                $name= "randodev";
-                $this->sendEmail($email, $title, $body );
-                }
-                //Redirection
-                header('Location: home');
-                exit();
-            } else {
-                ?>
-                <div class="box_container"><div class="wrong_box">Adresse email invalide. <br /><a href="<?php echo "$_SERVER[HTTP_REFERER]"; ?>">Retour</a></div></div>
-                <?php
-            }
+
+                            $title = "Merci pour votre inscription";
+                            $body = 'http://localhost:3000/confirmMail?id=' . $_SESSION['id'];
+                            $from = "randodev02@gmail.com";
+                            $name = "randodev";
+                            $this->sendEmail($email, $title, $body);
+                        }
+                        //Redirection
+
+                        $message = "User added successfully";
+                        require_once "../view/messages.php";
+                        header('Refresh: 2, url=home');
+                        header('Location: home');
+                        exit();
+                    } else {
+                        ?>
+                        <div class="box_container">
+                            <div class="wrong_box">Adresse email invalide. <br/><a
+                                        href="<?php echo "$_SERVER[HTTP_REFERER]"; ?>">Retour</a></div>
+                        </div>
+                        <?php
+                    }
 //Si les champs ne sont pas tous remplis
-        }
-        else {
-            echo "Veuillez remplir tous les champs";
-        }
+                } else {
+                    echo "Veuillez remplir tous les champs";
+                }
+            }else{
+              foreach ($mails as $row):
+                  if ($row['email'] === $mail) {
+                      var_dump($row);
+                      $message = "Compte existant";
+                      require_once "../view/messages.php";
+                      header('Refresh: 2, url=home');
+                      exit();
+                  }
+              endforeach;
+          }
+
     }
-    public function sendEmail($to, $subject, $body){
+
+    public function sendEmail($to, $subject, $body)
+    {
         $mail = new PHPMailer(true);
 
         $mail->isSMTP();
@@ -94,7 +123,7 @@ class Register
 
         $mail->isHTML(true);                      // Set email format to HTML
         $mail->Subject = $subject;
-        $mail->Body    = $body;
+        $mail->Body = $body;
 
         $mail->send();
 
