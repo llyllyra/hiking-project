@@ -1,24 +1,6 @@
-<?php
-include_once '../view/inc/header.inc.php';
-?>
+<?php include_once '../view/inc/header.inc.php';?>
 <section class="admin">
-    <nav class="navbar bg-light">
-        <div class="container-fluid">
-            <span class="mb-0 h1">ADMIN</span>
-        </div>
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/admin?page=users">USERS</a>
-        </div>
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/admin">HIKES</a>
-        </div>
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/admin?page=tags">TAGS LIST</a>
-        </div>
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/admin?page=add_tag">ADD TAG</a>
-        </div>
-    </nav>
+<?php include_once 'inc/navigation.php';?>
 
     <section class="admin_content">
         <h2 class="admin_title">EDIT TAG</h2>

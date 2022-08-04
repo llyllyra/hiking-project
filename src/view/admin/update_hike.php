@@ -18,7 +18,7 @@ foreach ($hikes as $hike):
         ?>
         <section id="register">
             <h2>Update hike</h2>
-            <form method="post" action="updateHike?id=<?=$hike['id']?>" enctype="multipart/form-data">
+            <form method="post" action="updateHike?id=<?=$hike['hikeId']?>" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Name</label>
                     <input type="text" name="name" class="form-control" aria-describedby="emailHelp" value="<?=$hike['name'];?>" required>
@@ -63,8 +63,13 @@ foreach ($hikes as $hike):
                     <label for="description" class="form-label">Description</label>
                     <textarea class="form-control" aria-label="With textarea" name="description"><?=$hike['description'];?></textarea>
                 </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Tags</label>
+                    <textarea class="form-control" aria-label="With textarea" name="description" placeholder="Enter your own tags separated by commas"></textarea>
+                </div>
 
                 <!-- ajout de tags -->
+                <ul class="tags_list">
                 <?php
                 // reprendre la db car inconnue
                 require_once '../core/db.php';
@@ -78,17 +83,18 @@ foreach ($hikes as $hike):
                 $tags = $q->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($tags as $tag) :
                     ?>
-                    <div class="form-check mb-3">
+                    <li class="form-check mb-3 tag">
                         <input name="tags" value="<?= $tag['id']; ?>" class="form-check-input" type="checkbox" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             <?= $tag['name']; ?>
                         </label>
-                    </div>
+                    </li>
                 <?php
                 endforeach;
                 ?>
+                </ul>
                 <div class="btn_box">
-                    <button type="submit" class="btn btn-success" value="<?php $hike['id'] ?>" name="submit">Submit</button>
+                    <button type="submit" class="btn btn-success" value="<?php $hike['hikeId'] ?>" name="submit">Submit</button>
                 </div>
             </form>
         </section>

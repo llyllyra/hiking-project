@@ -41,10 +41,10 @@
 <div id="search_bar">
       <div>Marche ou code !</div>
       <div id="search">
-
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-  <button type="button" class="btn btn-outline-primary">search</button>
-
+        <form method="POST" id="search" action="search">
+            <input type="text" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="search" />
+            <button type="submit" class="btn btn-outline-primary" name="submit">search</button>
+        </form>
       </div>
     </div>
 <main>

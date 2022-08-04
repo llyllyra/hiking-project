@@ -5,19 +5,14 @@ body {
       max-width: 1520px;
       table {
         &.table {
-          background-color: rgba(255, 255, 255, 0.8);
-          -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
-          box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
           .thead-dark {
             height: 60px;
-            background-color: #6f95c1;
-            color: #fff;
-            font-size: 24px;
+            color: #222f3e;
+            font-size: 18px;
             font-weight: bold;
           }
           tbody {
             tr {
-              border-top: 1px solid #222f3e;
               td {
                 a {
                   text-decoration: none;

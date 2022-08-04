@@ -25,10 +25,9 @@ body {
                 width: 300px;
                 margin: 25px auto;
                 &:hover {
-                  background-color: #6f95c1;
-                  -webkit-box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
-                  box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
-                  color: #222f3e;
+                  -webkit-box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.83);
+                  box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.83);
+                  transform: rotate(3deg);
                 }
                 img {
                   border-radius: 10px 10px 0 0;
