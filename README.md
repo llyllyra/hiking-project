@@ -8,9 +8,9 @@ As you may know, your coach is a fan of hiking. He asks you to develop an app ab
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Dark Blue | ![#222F3E](https://via.placeholder.com/10/222F3E?text=+) #222F3E |
-| Light Blue | ![#6F95C1](https://via.placeholder.com/10/6F95C1?text=+) #6F95C1 |
-| White | ![#fffff](https://via.placeholder.com/10/fffffa?text=+) #fffff |
+| Dark Blue | ![#222F3E](https://via.placeholder.com/10/222F3E?text=+) |
+| Light Blue | ![#6F95C1](https://via.placeholder.com/10/6F95C1?text=+) |
+| White | ![#fffff](https://via.placeholder.com/10/fffffa?text=+) |
 
 ## Authors
 
