@@ -50,7 +50,7 @@ class Sql
         $pdo = $this->connection();
 
         try {
-            $q = $pdo->prepare("SELECT *, user.nickname, date_format(h.createdDate, '%D %M  %Y') as date
+            $q = $pdo->prepare("SELECT *, user.nickname, date_format(h.createdDate, '%D %M  %Y') as date, h.id as hikeId
             from hikes h
                 inner join user   on user.id = h.user_Id
             WHERE h.id = $_GET[id]");
@@ -284,13 +284,16 @@ class Sql
                     move_uploaded_file($tmpName, $imgPath);
                     $photo = $newName;
                 }
-            } else {
-                $p = $pdo->prepare("Select imgUrl from hikes WHERE id = $_GET[id]");
-                $p->execute();
-                $photos = $p->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($photos as $p) {
-                    $photo = $p['imgUrl'];
-                }
+             
+        }
+        }
+        else {
+            exit();
+            $p = $pdo->prepare("Select imgUrl from hikes WHERE id = $_GET[id]");
+            $p->execute();
+            $photos = $p->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($photos as $p) {
+                $photo = $p['imgUrl'];
             }
         }
 

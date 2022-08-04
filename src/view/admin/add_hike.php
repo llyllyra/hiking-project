@@ -57,10 +57,15 @@ if (!isset($_SESSION['user_id'])) {
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
+                <textarea class="form-control" aria-label="With textarea" name="description" placeholder="Enter hike description"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Tags</label>
+                <textarea class="form-control" aria-label="With textarea" name="description" placeholder="Enter your own tags separated by commas"></textarea>
             </div>
 
             <!-- ajout de tags -->
+            <ul class="tags_list">
             <?php
             // reprendre la db car inconnue
             require_once '../core/db.php';
@@ -74,15 +79,16 @@ if (!isset($_SESSION['user_id'])) {
             $tags = $q->fetchAll(PDO::FETCH_ASSOC);
             foreach ($tags as $tag) :
                 ?>
-                <div class="form-check mb-3">
+                <li class="form-check mb-3 tag">
                     <input name="tags[]" value="<?= $tag['id']; ?>" class="form-check-input" type="checkbox" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         <?= $tag['name']; ?>
                     </label>
-                </div>
+                </li>
             <?php
             endforeach;
             ?>
+            </ul>
             <div class="btn_box">
                 <button type="submit" class="btn btn-success" name="submit">Submit</button>
             </div>
