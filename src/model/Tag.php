@@ -11,7 +11,7 @@ class Tag extends Dbconnect
     // Afficher la list des tags
     public function getTag(): array
     {
-        $pdo = $this->connection();
+        $pdo = $this->getConnection();
         try {
             $q = $pdo->prepare("SELECT * FROM tags");
             $q->execute();
@@ -28,7 +28,7 @@ class Tag extends Dbconnect
     // Afficher la list des tags  par id
     public function getTagById(): array
     {
-        $pdo = $this->connection();
+        $pdo = $this->getConnection();
         try {
             $q = $pdo->prepare("SELECT * from tags WHERE id = $_GET[id]");
             $q->execute();
@@ -43,7 +43,7 @@ class Tag extends Dbconnect
     //Ajouter des tags
     public function addTags():void
     {
-        $pdo = $this->connection();
+        $pdo = $this->getConnection();
         $stmt = $pdo->prepare("INSERT INTO tags (name) VALUES (:name)");
         $stmt->bindParam(':name', $name);
 
@@ -81,7 +81,7 @@ class Tag extends Dbconnect
     //Editer des tags
     public function editTags(int $id):void
     {
-        $pdo = $this->connection();
+        $pdo = $this->getConnection();
         $stmt = $pdo->prepare("UPDATE tags SET name = :name WHERE id = $id");
         $stmt->bindParam(':name', $name);
 
@@ -99,7 +99,7 @@ class Tag extends Dbconnect
     //Supprimer un tag
     public function deleteTag():void
     {
-        $pdo = $this->connection();
+        $pdo = $this->getConnection();
         try {
             $d = $pdo->prepare("DELETE FROM tags WHERE id = :id");
             $d->bindParam('id', $id);

@@ -1,6 +1,6 @@
 <?php
 include_once '../view/inc/header.inc.php';
-require_once 'model/Sql.php';
+require_once 'model/Hikes.php';
 //Afficher les randonnée par l'id utilisateur
 
 
@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
     
 }
-$sql = new Sql();
+$sql = new hikes();
 
 
 if ($_SESSION['role'] === "admin") {

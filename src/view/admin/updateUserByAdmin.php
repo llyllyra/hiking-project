@@ -1,9 +1,8 @@
 <?php
 include_once '../view/inc/header.inc.php';
-require_once 'core/db.php';
-require_once 'model/Sql.php';
+require_once 'model/User.php';
 
-$sql = new Sql();
+$sql = new User();
 $users = $sql->getUserById($_GET['id']);
 foreach ($users as $user)     :
     if ($_GET['id'] == $_GET['id']){

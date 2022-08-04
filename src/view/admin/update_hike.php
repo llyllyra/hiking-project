@@ -1,15 +1,19 @@
 <?php
 include_once '../view/inc/header.inc.php';
 require_once 'core/db.php';
-require_once 'model/Sql.php';
+require_once 'model/Hikes.php';
+require_once 'model/Tag.php';
 //Si l'utilisateur n'est pas connecté : message d'erreur / Exit
 if (!isset($_SESSION['user_id'])) {
     echo 'Veuillez vous connecter';
     exit();
 }
 
-$sql = new Sql();
+$sql = new Hikes();
 $hikes = $sql->getHikeById($_GET["id"]);
+
+$sqlTag = new Tag();
+$tags = $sqlTag->getTag();
 
 foreach ($hikes as $hike):
 
@@ -66,16 +70,6 @@ foreach ($hikes as $hike):
 
                 <!-- ajout de tags -->
                 <?php
-                // reprendre la db car inconnue
-                require_once '../core/db.php';
-                try {
-                    $q = $pdo->prepare("SELECT * from tags");
-                    $q->execute();
-                } catch (Exception $e) {
-                    echo $e->getMessage();
-                    exit;
-                }
-                $tags = $q->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($tags as $tag) :
                     ?>
                     <div class="form-check mb-3">
