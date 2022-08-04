@@ -1,8 +1,10 @@
 <?php
 include_once '../view/inc/header.inc.php';
-require_once 'model/User.php';
-<section class="admin">
+?>
+     <section class="admin">
+<?php
 include_once 'inc/navigation.php';
+require_once 'model/User.php';
 
 //Vérifier que l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
@@ -16,6 +18,7 @@ $users = $sql->getUser();
 
 
 ?>
+
 <section class="admin_content">
     <h2 class="admin_title">USERS</h2>
         <?php
@@ -69,4 +72,4 @@ $users = $sql->getUser();
 
     </section>
 
-<?php include_once '../view/inc/footer.inc.php';
+<?php include_once '../view/inc/footer.inc.php';    }

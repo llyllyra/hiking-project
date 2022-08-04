@@ -111,7 +111,7 @@ class User    extends Dbconnect
 
         // on teste la déclaration de nos variables
         if (isset($_POST['email']) && isset($_POST['password'])) {
-            $pdo = $this->connection();
+            $pdo = $this->getConnection();
             $email = $_POST['email'];
             $password = $_POST['password'];
             //Récupérer les données de l'utilisateur
