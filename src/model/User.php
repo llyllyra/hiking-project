@@ -12,7 +12,7 @@ class User    extends Dbconnect
 
     public function getUser(): array
     {
-        $pdo = $this->getConnection();
+        $pdo = $this->getConnection();;
 
         try {
             $q = $pdo->prepare("SELECT * FROM user");
@@ -29,7 +29,7 @@ class User    extends Dbconnect
     // Afficher les utilisateurs par id
     public function getUserById(int $id): array
     {
-        $pdo = $this->getConnection();
+        $pdo = $this->getConnection();;
 
         try {
             $q = $pdo->prepare("SELECT * FROM user WHERE id = $id");
@@ -47,7 +47,7 @@ class User    extends Dbconnect
     public function updateUserByAdmin()   :void
     {
 
-        $pdo = $this->connection();
+        $pdo = $this->getConnection();;
         if (isset($_POST['first_name'])) {
             //enregistrer les données dans la base de données
             $stmt = $pdo->prepare(
@@ -90,7 +90,7 @@ class User    extends Dbconnect
 
     public function delUser()  :void
     {
-        $pdo = $this->connection();
+        $pdo = $this->getConnection();;
         try {
             $d = $pdo->prepare("DELETE FROM user WHERE id = :id");
             $d->bindParam('id', $id);
@@ -103,6 +103,51 @@ class User    extends Dbconnect
         } catch (Exception $e) {
             echo $e->getMessage();
             exit;
+        }
+    }
+
+    public function connexion()
+    {
+
+        // on teste la déclaration de nos variables
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            $pdo = $this->connection();
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            //Récupérer les données de l'utilisateur
+            $req = $pdo->prepare("SELECT * FROM user WHERE email = '$email'");
+
+
+            $req->execute();
+
+
+            foreach ($req as $row) {
+
+                if (!password_verify($password, $row['password'])) {
+                    //Redirection
+                    header('Location: home');
+                    exit();
+                } else {
+                    if($row["confirmation_email"] === "confirmed"){
+                        $_SESSION['user_id'] = $row['id'];
+                        $_SESSION['nickname'] = $row['nickame'];
+                        $_SESSION['role'] = $row['role'];
+                        //Redirection
+                        header('Location: home');
+                        exit();
+                    } else {
+                        //message de confirmation
+                        header('Location: home');
+                        exit();
+                    }
+
+
+                }
+            }
+
+        } else {
+            //Afficher message d'erreur
+            //echo "Une erreur s'est produite, veuillez réessayer.";
         }
     }
 }

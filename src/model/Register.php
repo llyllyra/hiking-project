@@ -13,11 +13,9 @@ use PHPMailer\PHPMailer\Exception;
 class Register  extends Dbconnect
 {
 
-    public function register($mail)
+    public function registers($mail)
     {
         $pdo = $this->getConnection();
-;
-        var_dump($mail);
         $req = $pdo->prepare("SELECT * FROM user WHERE email = '$mail'");
         $req->execute();
         $mails = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -46,7 +44,7 @@ class Register  extends Dbconnect
                         $email = htmlspecialchars($_POST['email']);
                         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                         $role = "user";
-                        $confirmationMail = "not_confirmed";
+                        $confirmationMail =  round(microtime(TRUE));
                         $stmt->execute();
                         $recupUser = $pdo->prepare("SELECT * FROM user WHERE email = ?");
                         $recupUser->execute(array($email));
@@ -56,7 +54,7 @@ class Register  extends Dbconnect
 
 
                             $title = "Merci pour votre inscription";
-                            $body = 'http://localhost:3000/confirmMail?id=' . $_SESSION['id'];
+                            $body = 'http://localhost:3000/confirmMail?cle=' . $confirmationMail;
                             $from = "randodev02@gmail.com";
                             $name = "randodev";
                             $this->sendEmail($email, $title, $body);

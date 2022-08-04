@@ -8,25 +8,24 @@ class confirmMail extends Dbconnect
 
     public function confirmMail(){
 
-        if(isset($_GET['id']) && !empty($_GET['id']) ){
+        if(isset($_GET['cle']) && !empty($_GET['cle']) ){
             $pdo = $this->getConnection();
-            $getid = $_GET['id'];
-            $recupUser =  $pdo->prepare("SELECT * FROM user WHERE id= $getid");
+            $cle = $_GET['cle'];
+            $recupUser =  $pdo->prepare("SELECT * FROM user WHERE confirmation_email = $cle");
             $recupUser->execute();
-
+            var_dump($recupUser);
            if ($recupUser->rowCount() > 0){
                $useInfo = $recupUser->fetch();
 
-                if($useInfo['confirmation_email'] === "not_confirmed"){
+                if($useInfo['confirmation_email'] !== "confirmed"){
                     $confirm = 'confirmed';
-                    $query = 'UPDATE user set `confirmation_email` = ?  WHERE id = ?';
+                    $query = 'UPDATE user set `confirmation_email` = ?  WHERE confirmation_email = ?';
                      $update = $pdo->prepare($query);
 
-                     $update->execute(array($confirm,$getid));
-                    var_dump($useInfo);
+                     $update->execute(array($confirm,$cle));
                     header('Location: home');
                 } else{
-                    var_dump($_GET['id']);
+                    var_dump($_GET['cle']);
                 }
            }else{
                echo 'clé incorrect';

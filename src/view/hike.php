@@ -7,9 +7,8 @@ include_once 'inc/header.inc.php';
 // Utilisé la class sql pour afficher la liste des randonnée (voir dans model/Sql.php)
 $sql = new Hikes();
 $hikes = $sql->getHikeById($_GET['id']);
-
-
 ?>
+
 <section id="hike">
       <!-- boucles php -->
       <?php
