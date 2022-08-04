@@ -1,8 +1,8 @@
 <?php
 include_once '../view/inc/header.inc.php';
-include_once 'model/Sql.php';
+include_once 'model/User.php';
 
-$sql = new Sql();
+$sql = new user();
 
 $users = $sql->getUserById($_SESSION['user_id']);
 foreach ($users as $user):

@@ -1,8 +1,8 @@
 <?php
 include_once '../view/inc/header.inc.php';
-include_once 'model/Sql.php';
+include_once 'model/Hikes.php';
 
-$sql = new Sql();
+$sql = new Hikes();
 
 //Si l'utilisateur n'est pas connecté : message d'erreur / Exit
 if (!isset($_SESSION['user_id'])) {

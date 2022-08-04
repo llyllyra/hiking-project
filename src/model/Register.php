@@ -1,6 +1,8 @@
 <?php
-
+declare(strict_types = 1);
 require_once '../core/dbinfo.php';
+require_once 'dbconnect.php';
+
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
@@ -8,19 +10,8 @@ require 'PHPMailer/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-class Register
+class Register  extends Dbconnect
 {
-    private function getConnection()
-    {
-        try {
-            $pdo = new PDO(DNS, USER, PASSWORD);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $pdo;
-        } catch (Exception $e) {
-            echo $e->getMessage();
-            exit;
-        }
-    }
 
     public function register($mail)
     {
@@ -92,7 +83,6 @@ class Register
             }else{
               foreach ($mails as $row):
                   if ($row['email'] === $mail) {
-                      var_dump($row);
                       $message = "Compte existant";
                       require_once "../view/messages.php";
                       header('Refresh: 2, url=home');

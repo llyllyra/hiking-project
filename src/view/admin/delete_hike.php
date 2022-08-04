@@ -1,8 +1,8 @@
 <?php
 include_once '../view/inc/header.inc.php';
-require_once 'model/Sql.php';
+require_once 'model/Hikes.php';
 
-$sql = new Sql();
+$sql = new Hikes();
 $hikes= $sql->getDelHike($_GET['id']);
 foreach ($hikes as $hike):
 //On vérifie que la rando appartienne à l'utilisateur

@@ -26,15 +26,15 @@ foreach ($users as $user):
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" name="actual_password" placeholder="Enter your actual password" required>
+            <input type="password" class="form-control" name="actual_password" placeholder="Enter your actual password" >
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" name="new_password" placeholder="Enter your new password" required>
+            <input type="password" class="form-control" name="new_password" placeholder="Enter your new password" >
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password confirmation</label>
-            <input type="password" class="form-control" name="confirm_new_password" placeholder="Please confirm new your password" required>
+            <input type="password" class="form-control" name="confirm_new_password" placeholder="Please confirm new your password" >
         </div>
         <div class="btn_box">
         <button type="submit" class="btn btn-success" name="register">Submit</button>

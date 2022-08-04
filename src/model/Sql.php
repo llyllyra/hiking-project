@@ -80,7 +80,7 @@ class Sql
     }
 
 
-    // Afficher tous les utilisateurs 
+    // Afficher tous les utilisateurs
 
     public function getUser(): array
     {
@@ -322,9 +322,6 @@ class Sql
             $description = $_POST['description'];
             //$tags = implode(';', $_POST['tags']);
             $date = date('Y-m-d');
-            $user = $_SESSION['user_id'];
-
-
             //On execute l'insertion dans la bdd
             $stmt->execute();
             //On défini le message à afficher

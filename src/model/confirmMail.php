@@ -1,19 +1,10 @@
 <?php
 
 require_once '../core/dbinfo.php';
+require_once 'dbconnect.php';
 
-class confirmMail{
-    private function getConnection()
-    {
-        try {
-            $pdo = new PDO(DNS, USER, PASSWORD);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $pdo;
-        } catch (Exception $e) {
-            echo $e->getMessage();
-            exit;
-        }
-    }
+class confirmMail extends Dbconnect
+{
 
     public function confirmMail(){
 
@@ -28,7 +19,7 @@ class confirmMail{
 
                 if($useInfo['confirmation_email'] === "not_confirmed"){
                     $confirm = 'confirmed';
-                    $query = 'UPDATE user set `confirmation_email` = ?  WHERE ?';
+                    $query = 'UPDATE user set `confirmation_email` = ?  WHERE id = ?';
                      $update = $pdo->prepare($query);
 
                      $update->execute(array($confirm,$getid));

@@ -1,16 +1,20 @@
 <?php
-include_once 'inc/header.inc.php';
-require_once 'model/Sql.php';
-require_once 'controller/time_converter.php';
 
+require_once 'model/Hikes.php';
+require_once 'model/Search.php';
+require_once 'controller/time_converter.php';
+include_once 'inc/header.inc.php';
 // Utilisé la class sql pour afficher la liste des randonnée (voir dans model/Sql.php)
-$sql = new Sql();
+$sql = new Hikes();
 $hikes = $sql->getHikeById($_GET['id']);
+
 
 ?>
 <section id="hike">
       <!-- boucles php -->
       <?php
+      require_once 'model/Search.php';
+
       foreach ($hikes as $hike) :
       $newTime = new TimeConverter($hike['duration']);
       ?>

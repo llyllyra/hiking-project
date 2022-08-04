@@ -12,7 +12,7 @@ $routes = [
         '/delete_hike' => '../view/admin/delete_hike.php',
         '/hike' => '../view/hike.php',
         '/test' => '../controller/test.php',
-        '/user' => '../controller/user.php',
+        '/user' => '../controller/User.php',
         '/deleteOneHike' => '../controller/admin/deleteHike.php',
         '/disconnect' => '../view/admin/logout.php',
         '/login' => '../view/admin/login.php',
@@ -26,10 +26,11 @@ $routes = [
         '/viewUser' => '../view/admin/users.php',
         '/register' => '../view/register.php',
         '/confirmMail' => '../controller/confirmMail.php',
+        '/searchView' => '../view/Search.php',
     ],
     // Routes de la méthode POST
     'POST' => [
-        '/user' => '../controller/user.php',
+        '/user' => '../controller/User.php',
         '/login_submit' => '../view/admin/login.php',
         '/add_hike' => '../controller/admin/addHikes.php',
         '/admin' => '../controller/admin/admin.php',
@@ -37,7 +38,7 @@ $routes = [
         '/updateUser' => '../controller/admin/update_User.php',
         '/connexion' => '../controller/admin/connexion.php',
         '/RegisterForm' => '../controller/register.php',
-
+        '/search' => '../controller/search.php',
 
     ],
 ];

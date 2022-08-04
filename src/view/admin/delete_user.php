@@ -1,8 +1,8 @@
 <?php
 include_once '../view/inc/header.inc.php';
-require_once 'model/Sql.php';
+require_once 'model/User.php';
 
-$sql = new Sql();
+$sql = new User();
 $user= $sql->delUser($_GET['id']);
 //On vérifie que la rando appartienne à l'utilisateur
     if ($user['user_Id'] == $_SESSION['user_id']) {
