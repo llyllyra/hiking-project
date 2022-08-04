@@ -38,4 +38,13 @@
         </ul>
     </nav>
 </header>
+<div id="search_bar">
+      <div>Marche ou code !</div>
+      <div id="search">
+
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+  <button type="button" class="btn btn-outline-primary">search</button>
+
+      </div>
+    </div>
 <main>

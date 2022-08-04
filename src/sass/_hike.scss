@@ -3,24 +3,62 @@ main {
     color: #fff;
     display: flex;
     .hike_info {
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: #fff;
+      padding: 20px;
       -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
       box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
       color: #222f3e;
       border-radius: 10px;
       width: 800px;
-      margin: 80px auto;
-      #info {
-        display: flex;
-      }
-      img {
-        justify-content: center;
-        height: 400px;
-        width: 600px;
-      }
+      margin: 30px auto;
       #hike_name {
         text-align: center;
         font-size: 32px;
+      }
+      #global_info {
+        width: 100%;
+        text-align: right;
+        color: #848484;
+        font-size: 14px;
+      }
+      #flex {
+        display: flex;
+        margin-bottom: 20px;
+        #list_info {
+          width: 50%;
+          #info {
+            display: flex;
+            svg {
+              margin-right: 10px;
+            }
+            .departure {
+              color: #9335fc;
+            }
+            .duration {
+              color: #e63c60;
+            }
+            .distance {
+              color: #fc8e35;
+            }
+            .arrive {
+              color: #f2d433;
+            }
+            .difficulty {
+              color: #9335fc;
+            }
+            .elevation {
+              color: #e63c60;
+            }
+          }
+        }
+        #img {
+          text-align: right;
+          width: 50%;
+          img {
+            max-width: 360px;
+            border-radius: 8px;
+          }
+        }
       }
       p #info {
         display: block;

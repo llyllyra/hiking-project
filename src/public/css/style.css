@@ -158,29 +158,67 @@ main #hike {
   display: flex;
 }
 main #hike .hike_info {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #fff;
+  padding: 20px;
   -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
   color: #222f3e;
   border-radius: 10px;
   width: 800px;
-  margin: 80px auto;
-}
-main #hike .hike_info #info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-main #hike .hike_info img {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 400px;
-  width: 600px;
+  margin: 30px auto;
 }
 main #hike .hike_info #hike_name {
   text-align: center;
   font-size: 32px;
+}
+main #hike .hike_info #global_info {
+  width: 100%;
+  text-align: right;
+  color: #848484;
+  font-size: 14px;
+}
+main #hike .hike_info #flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+main #hike .hike_info #flex #list_info {
+  width: 50%;
+}
+main #hike .hike_info #flex #list_info #info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+main #hike .hike_info #flex #list_info #info svg {
+  margin-right: 10px;
+}
+main #hike .hike_info #flex #list_info #info .departure {
+  color: #9335fc;
+}
+main #hike .hike_info #flex #list_info #info .duration {
+  color: #e63c60;
+}
+main #hike .hike_info #flex #list_info #info .distance {
+  color: #fc8e35;
+}
+main #hike .hike_info #flex #list_info #info .arrive {
+  color: #f2d433;
+}
+main #hike .hike_info #flex #list_info #info .difficulty {
+  color: #9335fc;
+}
+main #hike .hike_info #flex #list_info #info .elevation {
+  color: #e63c60;
+}
+main #hike .hike_info #flex #img {
+  text-align: right;
+  width: 50%;
+}
+main #hike .hike_info #flex #img img {
+  max-width: 360px;
+  border-radius: 8px;
 }
 main #hike .hike_info p #info {
   display: block;
@@ -243,9 +281,9 @@ body main section {
   body main section {
     margin: 0 auto;
   }
-  body main section ul {
+  body main section ul#hike_list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(365px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -254,34 +292,47 @@ body main section {
     text-align: center;
     padding: 0px;
   }
-  body main section ul li div {
-    background-color: rgba(255, 255, 255, 0.8);
-    -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
-    box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+  body main section ul#hike_list li a {
+    border: none;
+    text-decoration: none;
+  }
+  body main section ul#hike_list li a div.hike_card {
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
+    box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
     color: #222f3e;
     border-radius: 10px;
     width: 300px;
     margin: 25px auto;
   }
-  body main section ul li p#hike_name {
-    padding-top: 5px;
-    height: 55px;
-    font-weight: bold;
+  body main section ul#hike_list li a div.hike_card:hover {
+    background-color: #6f95c1;
+    -webkit-box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
+    box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
     color: #222f3e;
   }
-  body main section ul li p#info {
-    text-align: left;
-    margin-left: 10px;
-    margin-bottom: 10px;
+  body main section ul#hike_list li a div.hike_card img {
+    border-radius: 10px 10px 0 0;
+    border: none;
   }
-  body main section ul li img {
+  body main section ul#hike_list li a div.hike_card #hike_name {
+    background-color: #6f95c1;
+    color: #fff;
+    border-radius: 3px;
+    padding-bottom: 60px;
+    margin: 5px;
+  }
+  body main section ul#hike_list li a div.hike_card #info svg {
+    color: #222f3e;
+  }
+  body main section ul#hike_list img {
     width: 300px;
     height: 200px;
     border-top: 1px solid #222f3e;
     border-bottom: 1px solid #222f3e;
   }
 }
-body main section ul li div {
+body main ul li div {
   background-color: rgba(255, 255, 255, 0.8);
   -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
@@ -290,18 +341,18 @@ body main section ul li div {
   width: 360px;
   margin: 25px auto;
 }
-body main section ul li p {
+body main ul li p {
   margin: 5px;
 }
-body main section ul li p#hike_name {
+body main ul li p#hike_name {
   height: 50px;
   color: #222f3e;
 }
-body main section ul li p#info {
+body main ul li p#info {
   text-align: left;
   margin-left: 10px;
 }
-body main section ul li img {
+body main ul li img {
   width: 360px;
   height: 200px;
 }

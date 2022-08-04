@@ -5,71 +5,84 @@ body {
       max-width: 1520px;
       @media screen and(min-width: 845px) {
         margin: 0 auto;
-        ul {
+        ul#hike_list {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(365px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
           align-items: center;
           align-content: center;
           text-align: center;
           padding: 0px;
           li {
-            div {
-              background-color: rgba(255, 255, 255, 0.8);
-              -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
-              box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
-              color: #222f3e;
-              border-radius: 10px;
-              width: 300px;
-              margin: 25px auto;
-            }
-            p {
-              &#hike_name {
-                padding-top: 5px;
-                height: 55px;
-                font-weight: bold;
+            a {
+              border: none;
+              text-decoration: none;
+              div.hike_card {
+                background-color: rgba(255, 255, 255);
+                -webkit-box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
+                box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
                 color: #222f3e;
+                border-radius: 10px;
+                width: 300px;
+                margin: 25px auto;
+                &:hover {
+                  background-color: #6f95c1;
+                  -webkit-box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
+                  box-shadow: 6px 5px 11px -2px rgba(0, 0, 0, 0.63);
+                  color: #222f3e;
+                }
+                img {
+                  border-radius: 10px 10px 0 0;
+                  border: none;
+                }
+                #hike_name {
+                  background-color: #6f95c1;
+                  color: #fff;
+                  border-radius: 3px;
+                  padding-bottom: 60px;
+                  margin: 5px;
+                }
+                #info {
+                  svg {
+                    color: #222f3e;
+                  }
+                }
               }
-              &#info {
-                text-align: left;
-                margin-left: 10px;
-                margin-bottom: 10px;
-              }
-            }
-            img {
-              width: 300px;
-              height: 200px;
-              border-top: 1px solid #222f3e;
-              border-bottom: 1px solid #222f3e;
-            }
-          }
-        }
-      }
-      ul {
-        li {
-          div {
-            background-color: rgba(255, 255, 255, 0.8);
-            -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
-            box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
-            color: #222f3e;
-            border-radius: 10px;
-            width: 360px;
-            margin: 25px auto;
-          }
-          p {
-            margin: 5px;
-            &#hike_name {
-              height: 50px;
-              color: #222f3e;
-            }
-            &#info {
-              text-align: left;
-              margin-left: 10px;
             }
           }
           img {
-            width: 360px;
+            width: 300px;
             height: 200px;
+            border-top: 1px solid #222f3e;
+            border-bottom: 1px solid #222f3e;
           }
+        }
+      }
+    }
+    ul {
+      li {
+        div {
+          background-color: rgba(255, 255, 255, 0.8);
+          -webkit-box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+          box-shadow: 0px 0px 29px 9px rgba(0, 0, 0, 0.28);
+          color: #222f3e;
+          border-radius: 10px;
+          width: 360px;
+          margin: 25px auto;
+        }
+        p {
+          margin: 5px;
+          &#hike_name {
+            height: 50px;
+            color: #222f3e;
+          }
+          &#info {
+            text-align: left;
+            margin-left: 10px;
+          }
+        }
+        img {
+          width: 360px;
+          height: 200px;
         }
       }
     }

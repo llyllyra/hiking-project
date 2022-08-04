@@ -50,7 +50,10 @@ class Sql
         $pdo = $this->connection();
 
         try {
-            $q = $pdo->prepare("SELECT * from hikes WHERE id = $_GET[id]");
+            $q = $pdo->prepare("SELECT *, user.nickname, date_format(h.createdDate, '%D %M  %Y') as date
+            from hikes h
+                inner join user   on user.id = h.user_Id
+            WHERE h.id = $_GET[id]");
             $q->execute();
         } catch (Exception $e) {
             echo $e->getMessage();
