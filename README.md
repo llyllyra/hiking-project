@@ -16,7 +16,7 @@ As you may know, your coach is a fan of hiking. He asks you to develop an app ab
 
 - [@Marlène](https://github.com/llyllyra)
 
-- [@Nicolas](https://github.com/lambertnicolas)
+- [@NicolasLambert](https://github.com/lambertnicolas)
 
 - [@DorianMairy](https://github.com/DorianMairy)
 
