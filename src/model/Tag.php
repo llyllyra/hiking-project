@@ -59,11 +59,11 @@ class Tag extends Dbconnect
     }
 
    //Ajout de tags dans la table hikesTag
-    public function addTagHike() : void
+    public function addTagHike()
     {
         for ($i = 0; $i < count($_POST["tags"]); $i++) {
             $queryHikes = "SELECT MAX(id) AS id FROM hikes";
-            $qhikes = $this->connection()->prepare($queryHikes);
+            $qhikes = $this->getConnection()->prepare($queryHikes);
             $qhikes->execute();
             $hikes = $qhikes->fetchAll(PDO::FETCH_ASSOC);
             foreach ($hikes as $row):
@@ -71,7 +71,7 @@ class Tag extends Dbconnect
             endforeach;
             $tag = $_POST['tags'][$i];
             $query = 'INSERT INTO `hikesTag`(`hike_id`, `tag_id`) VALUES (?,?)';
-            $taghike = $this->connection()->prepare($query);
+            $taghike = $this->getConnection()->prepare($query);
             $taghike->execute([$hike, $tag]);
 
         }
@@ -79,7 +79,7 @@ class Tag extends Dbconnect
     }
 
     //Editer des tags
-    public function editTags(int $id):void
+    public function editTags(int $id)
     {
         $pdo = $this->getConnection();
         $stmt = $pdo->prepare("UPDATE tags SET name = :name WHERE id = $id");
@@ -97,7 +97,7 @@ class Tag extends Dbconnect
     }
 
     //Supprimer un tag
-    public function deleteTag():void
+    public function deleteTag()
     {
         $pdo = $this->getConnection();
         try {

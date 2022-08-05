@@ -1,6 +1,5 @@
 <?php
 include_once '../view/inc/header.inc.php';
-require_once 'core/db.php';
 require_once 'model/Hikes.php';
 require_once 'model/Tag.php';
 //Si l'utilisateur n'est pas connecté : message d'erreur / Exit

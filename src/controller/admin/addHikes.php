@@ -1,5 +1,5 @@
 <?php
-require_once 'model/Sql.php';
+require_once 'model/Hikes.php';
 
-$sql = new Sql();
+$sql = new Hikes();
 $sql->addHikes();

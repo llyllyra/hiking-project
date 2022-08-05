@@ -1,5 +1,5 @@
 <?php
-require_once 'model/Sql.php';
+require_once 'model/User.php';
 
-$sql = new Sql();
+$sql = new User();
 $sql->updateUserByAdmin();

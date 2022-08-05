@@ -150,4 +150,11 @@ class User    extends Dbconnect
             //echo "Une erreur s'est produite, veuillez réessayer.";
         }
     }
+    
+    //Ajout d'un utilisateur
+    public function addUser()
+    {
+        $pdo = $this->connection();
+        
+    }
 }
