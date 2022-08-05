@@ -38,14 +38,14 @@
         </ul>
     </nav>
 </header>
-<div id="search_bar">
+    <div id="search_bar">
       <div>Marche ou code !</div>
-      <form method="POST" id="search" action="search">
-
-  <input type="text" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="search" />
-  <button type="submit" class="btn btn-outline-primary" name="submit">search</button>
-
-      </form>
+      <div id="search">
+        <form method="POST" id="search" action="search">
+            <input type="text" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="search" />
+            <button type="submit" class="btn btn-outline-primary" name="submit">search</button>
+        </form>
+      </div>
     </div>
 <main>
     <?php

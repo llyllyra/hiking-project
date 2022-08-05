@@ -20,6 +20,7 @@ $hikes = $sql->getHikeById($_GET['id']);
         <div class="hike_info">
           <h2 id="hike_name"><?= $hike['name']; ?></h2>
           <p id="global_info">Added by  <?= $hike['nickname']?> on <?= $hike['date']; ?></p>
+          <?=$minutes = (isset($hike['updateDate'])) ? '<p id="global_info">Last update on '.$hike['date'].'</p>' : null;?>
           <div id="flex">
             <div id="list_info">
               <!--Departure-->  

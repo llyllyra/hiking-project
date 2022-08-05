@@ -76,7 +76,7 @@ body #search_bar div {
   display: -ms-flexbox;
   display: flex;
 }
-body #search_bar div#search {
+body #search_bar #search {
   color: #000;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
@@ -86,18 +86,23 @@ body #search_bar div#search {
   display: -ms-flexbox;
   display: flex;
 }
-body #search_bar div#search form {
+body #search_bar #search form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-body #search_bar div#search form input {
+body #search_bar #search form input {
   width: 200px;
+  height: 34px;
 }
-body #search_bar div#search form button {
+body #search_bar #search form button {
   background-color: #222f3e;
+  padding: 5px;
+  height: 34px;
+  width: 80px;
+  color: #fff;
 }
-body #search_bar div#search form button:hover {
+body #search_bar #search form button:hover {
   background-color: #0d6efd;
 }
 

@@ -42,7 +42,7 @@ class Hikes extends Dbconnect
         $pdo = $this->getConnection();
 
         try {
-            $q = $pdo->prepare("SELECT *, user.nickname, date_format(h.createdDate, '%D %M  %Y') as date
+            $q = $pdo->prepare("SELECT *, user.nickname, date_format(h.createdDate, '%D %M  %Y') as date, h.id as hikeId
             from hikes h
                 inner join user   on user.id = h.user_Id
             WHERE h.id = $_GET[id]");

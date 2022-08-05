@@ -60,21 +60,26 @@ body {
       width: 50%;
       padding: 10px 0 0 30px;
       display: flex;
-      &#search {
-        color: #000;
-        justify-content: flex-end;
-        padding: 8px 30px 8px 0;
+    }
+    #search {
+      color: #000;
+      justify-content: flex-end;
+      padding: 8px 30px 8px 0;
+      display: flex;
+      form {
         display: flex;
-        form {
-          display: flex;
-          input {
-            width: 200px;
-          }
-          button {
-            background-color: #222f3e;
-            &:hover {
-              background-color: #0d6efd;
-            }
+        input {
+          width: 200px;
+          height: 34px;
+        }
+        button {
+          background-color: #222f3e;
+          padding: 5px;
+          height: 34px;
+          width: 80px;
+          color: #fff;
+          &:hover {
+            background-color: #0d6efd;
           }
         }
       }
