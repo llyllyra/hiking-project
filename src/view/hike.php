@@ -7,6 +7,7 @@ include_once 'inc/header.inc.php';
 // Utilisé la class sql pour afficher la liste des randonnée (voir dans model/Sql.php)
 $sql = new Hikes();
 $hikes = $sql->getHikeById($_GET['id']);
+$tags = $sql->getTagsByHike($_GET['id'])
 ?>
 
 <section id="hike">
@@ -20,6 +21,7 @@ $hikes = $sql->getHikeById($_GET['id']);
         <div class="hike_info">
           <h2 id="hike_name"><?= $hike['name']; ?></h2>
           <p id="global_info">Added by  <?= $hike['nickname']?> on <?= $hike['date']; ?></p>
+          <!--Si updateDate existe, on l'affiche-->
           <?=$minutes = (isset($hike['updateDate'])) ? '<p id="global_info">Last update on '.$hike['date'].'</p>' : null;?>
           <div id="flex">
             <div id="list_info">
@@ -52,13 +54,17 @@ $hikes = $sql->getHikeById($_GET['id']);
         <div id="img">
           <img src="upload/<?= $hike['imgUrl']; ?>">
         </div>
-      </div>
+        </div>
             <p id="info"><?= $hike['description']; ?></p>
+            <div id="tags_list">
+          Tags :
+        <?php foreach ($tags as $tag) :?>
+            <?='<a href="searchView?search='.$tag['name'].'">'.$tag['name'].'</a>  '; ?>
+        <?php endforeach;?>
+        </div>
         </div>
         <!-- fin de boucle -->
-      <?php
-      endforeach;
-      ?>
+      <?php endforeach;?>
     </ul>
   </section>
 </main>

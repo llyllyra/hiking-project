@@ -5,7 +5,8 @@ require_once 'controller/time_converter.php';
 
 
 $sql = new Search();
-$search = $_POST['search'];
+//$search = $_POST['search'];
+$search = (isset($_GET['search'])) ? $_GET['search'] : $_POST['search'];
 $hikes = $sql->searchByName($search);
 if (count($hikes)> 0) :
 ?>

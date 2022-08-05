@@ -161,4 +161,23 @@ class Hikes extends Dbconnect
 
     }
 
+    //Récupérer les tags correspondants à une rando
+    public function getTagsByHike(int $hikeId): array
+    {
+        $pdo = $this->getConnection();
+
+        try {
+            $q = $pdo->prepare("SELECT name
+            from tags t
+                inner join hikesTag h on h.tag_id = t.id
+            WHERE h.hike_id = $_GET[id]");
+            $q->execute();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            exit;
+        }
+        $tags = $q->fetchAll(PDO::FETCH_ASSOC);
+        return $tags;
+    }
+
 }

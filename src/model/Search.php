@@ -14,7 +14,6 @@ class Search  extends Dbconnect
        $pdo = $this->getConnection();
 
        try{
-           $search = $_POST['search'];
            $query = "SELECT *, h.name  as hName, h.id as Hid
                         FROM hikes h
                             JOIN hikesTag hT ON h.id = hT.hike_id 

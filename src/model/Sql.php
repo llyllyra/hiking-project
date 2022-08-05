@@ -212,6 +212,18 @@ class Sql
 
         $stmt->execute();
 
+
+        //Ajout des tags personnalisés
+        if (isset($_POST['tags'])){
+            var_dump ($_POST['tags']);
+            $tagArray = explode(",", $_POST['tags']);
+            foreach($tagArray as $tag){
+                $stmt = $pdo->prepare("INSERT INTO tags (name) VALUES (:tag");
+                $stmt->bindParam(':tag', $tag);
+                $stmt->execute();
+            }
+        }
+
         $this->addTagHike();
         $message = "vous avez bien ajouter la randonnée";
         require_once "../view/messages.php";
@@ -270,7 +282,7 @@ class Sql
     public function updateHikes()
     {
         $pdo = $this->connection();
-        if (isset($_FILES['fileToUpload'])) {
+        if ($_FILES['fileToUpload']['name'] > 0) {
             $imgName = $_FILES['fileToUpload']['name'];
             $imgSize = $_FILES['fileToUpload']['size'];
             $tmpName = $_FILES['fileToUpload']['tmp_name'];
@@ -288,7 +300,6 @@ class Sql
         }
         }
         else {
-            exit();
             $p = $pdo->prepare("Select imgUrl from hikes WHERE id = $_GET[id]");
             $p->execute();
             $photos = $p->fetchAll(PDO::FETCH_ASSOC);
