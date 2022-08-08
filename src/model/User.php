@@ -1,52 +1,55 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 require_once '../core/dbinfo.php';
 require_once 'dbconnect.php';
 
 
-
-class User    extends Dbconnect
+class User extends Dbconnect
 {
-
+    
     // Afficher tous les utilisateurs
-
-    public function getUser(): array
+    
+    public function getUser()
+    : array
     {
         $pdo = $this->getConnection();;
-
+        
         try {
             $q = $pdo->prepare("SELECT * FROM user");
             $q->execute();
-        } catch (Exception $e) {
+        }
+        catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
         $users = $q->fetchAll(PDO::FETCH_ASSOC);
         return $users;
     }
-
-
+    
+    
     // Afficher les utilisateurs par id
-    public function getUserById(int $id): array
-    {
+    public function getUserById(int $id)
+    : array {
         $pdo = $this->getConnection();;
-
+        
         try {
             $q = $pdo->prepare("SELECT * FROM user WHERE id = $id");
             $q->execute();
-        } catch (Exception $e) {
+        }
+        catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
         $user = $q->fetchAll(PDO::FETCH_ASSOC);
         return $user;
     }
-
+    
     //edit user par l'admin
-
-    public function updateUserByAdmin()   :void
+    
+    public function updateUserByAdmin()
+    : void
     {
-
+        
         $pdo = $this->getConnection();;
         if (isset($_POST['first_name'])) {
             //enregistrer les données dans la base de données
@@ -64,14 +67,14 @@ class User    extends Dbconnect
             $stmt->bindParam(':lastName', $lastName);
             $stmt->bindParam(':login', $login);
             $stmt->bindParam(':role', $role);
-
-
+            
+            
             // insertion d'une ligne
             $firstName = $_POST['first_name'];
             $lastName = $_POST['last_name'];
             $login = $_POST['login_name'];
             $role = $_POST['role'];
-
+            
             //On execute l'insertion dans la bdd
             $stmt->execute();
             //On défini le message à afficher
@@ -80,15 +83,76 @@ class User    extends Dbconnect
             //Redirection vers home après 2 secondes
             header("Refresh: 2;URL=viewUser");
             exit();
-
-        } else {
+            
+        }
+        else {
             echo 'error';
         }
     }
-
+    
+    
+    //edit user par lui même/**/
+    
+    public function updateUserByUser(): void
+    {
+        
+        $pdo = $this->getConnection();
+        if (isset($_POST['first_name']) || isset($_POST['password']) || isset($_POST['confirm_password'])) {
+            //enregistrer les données dans la base de données
+            $stmt = $pdo->prepare(
+                "UPDATE
+                                    user 
+                                SET 
+                                    firstName = :firstName,
+                                    lastName= :lastName,
+                                    nickname= :login,
+                                    email= :email
+                                WHERE id = $_GET[id]"
+            );
+            if (isset($_POST['password']) && $_POST['password'] === $_POST['confirm_password']) {
+                $stmt = $pdo->prepare(
+                    "UPDATE
+                                    user
+                                SET
+                                    password = :password
+                                WHERE id = $_GET[id]"
+                );
+                $stmt->bindParam(':password', $password);
+                $password = $_POST['password'];
+                $stmt->execute();
+            };
+            $stmt->bindParam(':firstName', $firstName);
+            $stmt->bindParam(':lastName', $lastName);
+            $stmt->bindParam(':login', $login);
+            $stmt->bindParam(':email', $email);
+            
+            
+            // insertion d'une ligne
+            $firstName = $_POST['first_name'];
+            $lastName = $_POST['last_name'];
+            $login = $_POST['login_name'];
+            $email = $_POST['email'];
+            
+            
+            //On execute l'insertion dans la bdd
+            $stmt->execute();
+            //On défini le message à afficher
+            $message = "Updated successfully. Redirection...";
+            require_once "../view/messages.php";
+            //Redirection vers home après 2 secondes
+            header("Refresh: 2;URL=account");
+            exit();
+            
+        }
+        else {
+            echo 'error';
+        }
+    }
+    
     // delete user
-
-    public function delUser()  :void
+    
+    public function delUser()
+    : void
     {
         $pdo = $this->getConnection();;
         try {
@@ -100,15 +164,16 @@ class User    extends Dbconnect
             require_once "../view/messages.php";
             header('Refresh: 2, url=viewUser');
             exit();
-        } catch (Exception $e) {
+        }
+        catch (Exception $e) {
             echo $e->getMessage();
             exit;
         }
     }
-
+    
     public function connexion()
     {
-
+        
         // on teste la déclaration de nos variables
         if (isset($_POST['email']) && isset($_POST['password'])) {
             $pdo = $this->getConnection();
@@ -116,36 +181,39 @@ class User    extends Dbconnect
             $password = $_POST['password'];
             //Récupérer les données de l'utilisateur
             $req = $pdo->prepare("SELECT * FROM user WHERE email = '$email'");
-
-
+            
+            
             $req->execute();
-
-
+            
+            
             foreach ($req as $row) {
-
+                
                 if (!password_verify($password, $row['password'])) {
                     //Redirection
                     header('Location: home');
                     exit();
-                } else {
-                    if($row["confirmation_email"] === "confirmed"){
+                }
+                else {
+                    if ($row["confirmation_email"] === "confirmed") {
                         $_SESSION['user_id'] = $row['id'];
                         $_SESSION['nickname'] = $row['nickame'];
                         $_SESSION['role'] = $row['role'];
                         //Redirection
                         header('Location: home');
                         exit();
-                    } else {
+                    }
+                    else {
                         //message de confirmation
                         header('Location: home');
                         exit();
                     }
-
-
+                    
+                    
                 }
             }
-
-        } else {
+            
+        }
+        else {
             //Afficher message d'erreur
             //echo "Une erreur s'est produite, veuillez réessayer.";
         }
