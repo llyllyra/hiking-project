@@ -36,6 +36,7 @@ $routes = [
         '/admin' => '../controller/admin/admin.php',
         '/updateHike' => '../controller/admin/updateHikes.php',
         '/updateUser' => '../controller/admin/update_User.php',
+        '/updatePersoUser' => '../controller/admin/updatePersoUser.php',
         '/connexion' => '../controller/admin/connexion.php',
         '/RegisterForm' => '../controller/register.php',
         '/search' => '../controller/search.php',
