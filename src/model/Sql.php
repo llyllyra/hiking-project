@@ -383,6 +383,53 @@ class Sql
         }
     }
 
+        //edit user par l'user
+
+        public function updateUserByUser()
+        {
+    
+            $pdo = $this->connection();
+            if (isset($_POST['first_name'])) {
+                //enregistrer les données dans la base de données
+                $stmt = $pdo->prepare(
+                    "UPDATE 
+                                user 
+                            SET 
+                                firstName = :firstName,
+                                lastName= :lastName,
+                                nickname= :login,
+                                email= :email,
+                                password= :password,
+                            WHERE id = $_GET[id]"
+                );
+                $stmt->bindParam(':firstName', $firstName);
+                $stmt->bindParam(':lastName', $lastName);
+                $stmt->bindParam(':login', $login);
+                $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':password', $password);
+    
+    
+                // insertion d'une ligne
+                $firstName = $_POST['first_name'];
+                $lastName = $_POST['last_name'];
+                $login = $_POST['login_name'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+    
+                //On execute l'insertion dans la bdd
+                $stmt->execute();
+                //On défini le message à afficher
+                $message = "Updated successfully. Redirection...";
+                require_once "../view/messages.php";
+                //Redirection vers home après 2 secondes
+                header("Refresh: 2;URL=viewUser");
+                exit();
+    
+            } else {
+                echo 'error';
+            }
+        }
+
     //Editer des tags
     public function editTags($id)
     {
