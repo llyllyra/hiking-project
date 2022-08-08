@@ -41,6 +41,7 @@ body {
             padding: 10px;
             &:hover {
               background-color: #fff;
+              color: #222f3e;
               padding: 10px;
               border-radius: 6px;
             }
@@ -189,9 +190,9 @@ body {
     display: flex;
     max-width: 1520px;
     margin: 0 auto;
-    @media screen and(max-width: 768px) {
+    @media screen and(max-width: 680px) {
       flex-direction: column;
-      height: 120px;
+      height: 90px;
     }
     div {
       width: 50%;
@@ -203,6 +204,11 @@ body {
       justify-content: flex-end;
       padding: 8px 30px 8px 0;
       display: flex;
+      @media (max-width: 680px) {
+        padding: 0px;
+        margin-left: 15px;
+        justify-content: flex-start;
+      }
       form {
         display: flex;
         input {
