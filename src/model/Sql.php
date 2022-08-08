@@ -214,11 +214,10 @@ class Sql
 
 
         //Ajout des tags personnalisés
-        if (isset($_POST['tags'])){
-            var_dump ($_POST['tags']);
-            $tagArray = explode(",", $_POST['tags']);
+        if (isset($_POST['custom_tags'])){
+            $tagArray = explode(",", $_POST['custom_tags']);
             foreach($tagArray as $tag){
-                $stmt = $pdo->prepare("INSERT INTO tags (name) VALUES (:tag");
+                $stmt = $pdo->prepare("INSERT INTO tags (name) VALUES (:tag)");
                 $stmt->bindParam(':tag', $tag);
                 $stmt->execute();
             }

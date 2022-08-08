@@ -24,6 +24,21 @@ class Tag extends Dbconnect
         return $tags;
     }
 
+    // Récupérer les tags d'une rando
+    public function getTagByHike(): array
+    {
+        $pdo = $this->getConnection();
+        try {
+            $q = $pdo->prepare("SELECT * FROM hikesTag WHERE hike_id = $_GET[id]");
+            $q->execute();
+            } catch (Exception $e) {
+            echo $e->getMessage();
+            exit; 
+        }
+
+        $tags = $q->fetchAll(PDO::FETCH_ASSOC);
+        return $tags;
+    }
 
     // Afficher la list des tags  par id
     public function getTagById(): array

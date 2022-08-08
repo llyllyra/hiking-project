@@ -13,7 +13,7 @@
     <title>DEV Randonneur</title>
 </head>
 <body>
-<header>
+<header id="desktop-header">
     <div>
         <a href="home">
             <h1>< DEV > Randonneur</h1>
@@ -37,6 +37,33 @@
             <?php } ?>
         </ul>
     </nav>
+</header>
+<header id="mobile-header">
+    <section class="top-nav">
+        <div>
+        < DEV > Randonneur
+        </div>
+        <input id="menu-toggle" type="checkbox" />
+        <label class='menu-button-container' for="menu-toggle">
+            <div class='menu-button'></div>
+        </label>
+        <ul class="menu">
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
+                <li><a href="/admin" alt="admin">ADMIN</a></li>
+            <?php } ?>
+            <li><a href="/home" alt="home">HOME</a></li>
+            <?php if (!isset($_SESSION['user_id'])) { ?>
+                <li><a href="/register" alt="register">REGISTER</a></li>
+                <li><a href="/login" alt="login">LOGIN</a></li>
+            <?php }
+            else { ?>
+                <li><a href="/my_hikes">MY HIKES</a></li>
+                <li><a href="/add_hike">ADD HIKE</a></li>
+                <li><a href="/account">MY ACCOUNT</a></li>
+                <li><a href="/disconnect">DISCONNECT</a></li>
+            <?php } ?>
+        </ul>
+  </section>
 </header>
     <div id="search_bar">
       <div>Marche ou code !</div>

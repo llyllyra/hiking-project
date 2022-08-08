@@ -14,9 +14,10 @@ $hikes = $sql->getHikeById($_GET["id"]);
 
 $sqlTag = new Tag();
 $tags = $sqlTag->getTag();
+$hikeTags = $sqlTag->getTagByHike();
+
 
 foreach ($hikes as $hike):
-
 //On vérifie que la rando appartienne à l'utilisateur
     if ($hike['user_Id'] == $_SESSION['user_id'] || $_SESSION['role'] === "admin"){
         ?>
@@ -78,7 +79,14 @@ foreach ($hikes as $hike):
                 foreach ($tags as $tag) :
                     ?>
                     <li class="form-check mb-3 tag">
-                        <input name="tags" value="<?= $tag['id']; ?>" class="form-check-input" type="checkbox" id="flexCheckDefault">
+                        <input name="tags" value="<?= $tag['id']; ?>" class="form-check-input" type="checkbox" id="flexCheckDefault"
+                        <?php 
+                        foreach ($hikeTags as $hikeTag) :
+                            $checked = ($hikeTag['tag_id'] == $tag['id']) ? "checked" : null;
+                            echo $checked;
+                        endforeach;
+                        ?>    
+                        >
                         <label class="form-check-label" for="flexCheckDefault">
                             <?= $tag['name']; ?>
                         </label>

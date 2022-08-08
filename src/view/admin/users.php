@@ -7,9 +7,12 @@ include_once 'inc/navigation.php';
 require_once 'model/User.php';
 
 //Vérifier que l'utilisateur est connecté
-if (!isset($_SESSION['user_id'])) {
-    echo 'Error. Not connected';
-    exit;
+if (!isset($_SESSION['user_id']) || ($_SESSION['role']) != "admin") {
+    $message = "Your are not allowed to access this page.";
+    require_once "../view/messages.php";
+    header('Refresh: 2, url=home');
+    header('Location: home');
+    exit();
 }
 
 

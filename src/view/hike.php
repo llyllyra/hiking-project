@@ -58,6 +58,10 @@ $tags = $sql->getTagsByHike($_GET['id'])
             <p id="info"><?= $hike['description']; ?></p>
             <div id="tags_list">
           Tags :
+          <?php
+          $isEmpty = empty($tags) ? 'none' : '';
+          echo $isEmpty;
+          ?>
         <?php foreach ($tags as $tag) :?>
             <?='<a href="searchView?search='.$tag['name'].'">'.$tag['name'].'</a>  '; ?>
         <?php endforeach;?>

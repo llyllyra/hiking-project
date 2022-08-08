@@ -60,8 +60,8 @@ if (!isset($_SESSION['user_id'])) {
                 <textarea class="form-control" aria-label="With textarea" name="description" placeholder="Enter hike description"></textarea>
             </div>
             <div class="mb-3">
-                <label for="tags" class="form-label">Tags</label>
-                <textarea class="form-control" aria-label="With textarea" name="tags" placeholder="Enter your own tags separated by commas"></textarea>
+                <label for="custom_tags" class="form-label">Tags</label>
+                <textarea class="form-control" aria-label="With textarea" name="custom_tags" placeholder="Enter your own tags separated by commas"></textarea>
             </div>
 
             <!-- ajout de tags -->
